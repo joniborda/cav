@@ -1,0 +1,91 @@
+<div id="page-container" class="row">
+	<div id="page-content" class="col-sm-12">
+		<div class="movimientos form p_form">
+<div class="col-sm-2"></div>
+<div id="tabs" class="col-md-6">
+  <ul>
+    <li><a href="#tab-movimiento">TIPO DE MOVIMIENTO</a></li>
+    <li><a href="#tab-vehiculo">VEHÍCULO</a></li>
+    <li><a href="#tab-persona">PERSONA</a></li>
+    <li><a href="#tab-sector">SECTOR</a></li>
+  </ul>
+  <div id="tab-movimiento">
+  	<div class="row">
+	    <div class="col-md-6">
+	    	<button type="button" class="btn btn-success btn-lg btn-block" id="entrada"><span class="iconos glyphicon glyphicon-upload" aria-hidden="true"></span> <span class="letrota"> ENTRADA </span></button>
+	    </div>
+	    <div class="col-md-6">
+	    	<button type="button" class="btn btn-warning btn-lg btn-block" id="salida"> <span class="iconos glyphicon glyphicon-download" aria-hidden="true"></span> <span class="letrota"> SALIDA </span></button>
+	    </div>
+	</div>
+  </div>
+  <div id="tab-vehiculo">
+    <?php echo $this->Form->create('Vehiculo', array('inputDefaults' => array('label' => false), 'role' => 'form')); ?>
+    	<?php echo $this->Form->label('patente', 'PATENTE DEL VEHÍCULO'); ?>
+		<?php echo $this->Form->input('patente', array('type' => 'text', 'div' => false, "class" => 'form-control', 'maxlength' => 10));?>
+		<div class="row">
+			<a class="btn btn-danger col-md-6" id="vehiculo_atras" href="#"><span class="glyphicon glyphicon-chevron-left"></span> ATRÁS</a>
+			<button class="btn btn-success col-md-6">SIGUIENTE <span class="glyphicon glyphicon-chevron-right"></span></button>
+		</div>
+    <?php echo $this->Form->end(); ?>
+  </div>
+  <div id="tab-persona">
+	<?php echo $this->Form->create('Persona', array('inputDefaults' => array('label' => false), 'role' => 'form')); ?>
+    	<?php echo $this->Form->label('numero_documento', 'NÚMERO DE DOCUMENTO'); ?>
+		<?php echo $this->Form->input('numero_documento', array('type' => 'text', 'div' => false, "class" => 'form-control'));?>
+		<div class="row">
+			<a class="btn btn-danger col-md-6" id="persona_atras" href="#">ATRÁS</a>
+			<button class="btn btn-success col-md-6">SIGUIENTE</button>
+        </div>   
+    <?php echo $this->Form->end(); ?>
+  </div>
+  <div id="tab-sector">
+	<?php echo $this->Form->create('Sector', array('inputDefaults' => array('label' => false), 'role' => 'form')); ?>
+    	<?php echo $this->Form->label('sector', 'SECTOR A DONDE SE DIRIGE'); ?>
+		<?php echo $this->Form->input('sector', array('type' => 'text', 'div' => false, "class" => 'form-control'));?>
+
+		<?php echo $this->Form->label('interno', 'NÚMERO DE INTERNO'); ?>
+		<?php echo $this->Form->input('interno', array('type' => 'text', 'div' => false, "class" => 'form-control'));?>
+		<div class="row">
+			<a class="btn btn-danger col-md-6" id="sector_atras" href="#">ATRÁS</a>
+			<button class="btn btn-success col-md-6">SIGUIENTE</button>
+    	</div>
+    <?php echo $this->Form->end(); ?>
+  </div>
+</div>
+<div id="preview" class="col-md-3">
+	<form>
+		<div class="form-group has-error has-feedback">
+			<label class="control-label" for="preview_tipo_movmiento" >TIPO DE MOVIMIENTO</label>
+			<input class="form-control" id="preview_tipo_movmiento" disabled="disabled">
+			<span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+		</div>
+		<div class="form-group has-error has-feedback">
+			<label class="control-label" for="preview_vehiculo" >VEHÍCULO</label>
+			<input class="form-control" id="preview_vehiculo" disabled="disabled" disabled="disabled">
+			<span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+		</div>
+		<div class="form-group has-error has-feedback">
+			<label class="control-label" for="preview_persona" >PERSONA</label>
+			<input class="form-control" id="preview_persona" disabled="disabled">
+			<span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+		</div>
+	</form>
+</div>
+
+<?php echo $this->Form->create('Movimiento', array('inputDefaults' => array('label' => false), 'role' => 'form', 'class' => 'movimiento_form')); ?>
+	<?php echo $this->Form->input('tipo_movimiento', array('type' => 'hidden'));?>
+	<?php echo $this->Form->input('vehiculo_id', array('type' => 'hidden'));?>
+	<?php echo $this->Form->input('persona_id', array('type' => 'hidden'));?>
+	<?php echo $this->Form->input('sector', array('type' => 'hidden'));?>
+	<?php echo $this->Form->input('interno', array('type' => 'hidden'));?>
+<?php echo $this->Form->end(); ?>
+		</div><!-- /.form -->
+			
+	</div><!-- /#page-content .col-sm-9 -->
+
+</div><!-- /#page-container .row-fluid -->
+<?php echo $this->element('vehiculos/add'); ?>
+<?php echo $this->element('personas/add'); ?>
+
+<?php echo $this->Html->script ( 'Movimientos/admin_add.js' );?>

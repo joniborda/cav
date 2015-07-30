@@ -1,0 +1,11 @@
+#header {
+	padding-top: 2px;
+}
+
+#page-container {
+	padding-bottom: 20px;
+}
+
+#url-rewriting-warning {
+	display: none;
+}
