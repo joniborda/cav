@@ -91,7 +91,10 @@ $(function() {
 
 				bind_vehiculos_form();
 			}
-		}, 'json');
+		}, 'json').error(function() {
+			ocultar_loading();
+			alert('Asegurese de estar logueado');
+		});
 	});
 
 	$('#PersonaAdminAddForm').bind('submit', function(event) {
@@ -135,7 +138,10 @@ $(function() {
 
 				bind_personas_form();
 			}
-		}, 'json');
+		}, 'json').error(function() {
+			ocultar_loading();
+			alert('Asegurese de estar logueado');
+		});
 	});
 
 	$('#SectorAdminAddForm').bind('submit', function(event) {
@@ -216,7 +222,10 @@ $(function() {
 					}
 				},
 				'json'
-			);
+			).error(function() {
+				ocultar_loading();
+				alert('Asegurese de estar logueado');
+			});
 		});
 	}
 	
@@ -253,7 +262,10 @@ $(function() {
 					}
 				},
 				'json'
-			);
+			).error(function() {
+				ocultar_loading();
+				alert('Asegurese de estar logueado');
+			});
 		});
 	}
 	
