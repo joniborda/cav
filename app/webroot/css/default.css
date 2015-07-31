@@ -48,23 +48,16 @@ a {
 	color: #000;
 }
 
-.navbar-default .navbar-nav>li>a:hover,.navbar-default .navbar-nav>li>a:focus
-	{
+.navbar-default .navbar-nav>li>a:hover,.navbar-default .navbar-nav>li>a:focus,
+.navbar-default .navbar-nav>.active>a,.navbar-default .navbar-nav>.active>a:hover,.navbar-default .navbar-nav>.active>a:focus, 
+.navbar-default .navbar-nav>.open>a,.navbar-default .navbar-nav>.open>a:hover,.navbar-default .navbar-nav>.open>a:focus,
+.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus,
+.dropdown-menu>.active>a, .dropdown-menu>.active>a:hover, .dropdown-menu>.active>a:focus
+{
 	color: #000;
-	background-color: orange;
+	background-color: #e7e7e7;
 }
 
-.navbar-default .navbar-nav>.active>a,.navbar-default .navbar-nav>.active>a:hover,.navbar-default .navbar-nav>.active>a:focus
-	{
-	color: #ffffff;
-	background-color: orange;
-}
-
-.navbar-default .navbar-nav>.open>a,.navbar-default .navbar-nav>.open>a:hover,.navbar-default .navbar-nav>.open>a:focus
-	{
-	color: #fff;
-	background-color: orange;
-}
 /* caret */
 .navbar-default .navbar-nav>.dropdown>a .caret {
 	border-top-color: #ffffff;
@@ -522,12 +515,6 @@ border: 1px solid #000;
 	border: 0px;
 }
 
-.dropdown-menu>.active>a, .dropdown-menu>.active>a:hover, .dropdown-menu>.active>a:focus {
-	background-color:#9505A8; 
-}
-.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus {
-	background-color:#9505A8;
-}
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
 background-color: #357ebd;
 }
@@ -748,6 +735,10 @@ input[type="radio"], input[type="checkbox"] {
 	float: right;
 }
 
+#tab-vehiculo .label-danger, #tab-persona .label-danger {
+    font-size: 1.3em;
+    margin-left: 10px;
+}
 
 .btn {
 

@@ -42,11 +42,24 @@ $(function() {
 
 	$('#VehiculoAdminAddForm').bind('submit', function(event) {
 		event.preventDefault();
-		var patente;
+		var patente,
+			span;
 
 		mostar_loading();
 
 		patente = $('#VehiculoPatente').val();
+		$('#error_empty_patente').remove();
+		if (patente === '') {
+			span = $('<span>', {
+				'id' : 'error_empty_patente',
+				'text' : 'Ingrese una patente',
+				'class' : 'label label-danger'
+			});
+			$('#error_empty_patente').remove();
+			$('#VehiculoPatente').after(span);
+			ocultar_loading();
+			return;
+		}
 
 		$.get(base_url + 'admin/vehiculos/busqueda_patente/' + patente, function(data) {
 			ocultar_loading();
@@ -88,6 +101,19 @@ $(function() {
 		mostar_loading();
 
 		numero_documento = $('#PersonaNumeroDocumento').val();
+
+		$('#error_empty_numero_documento').remove();
+		if (numero_documento === '') {
+			span = $('<span>', {
+				'id' : 'error_empty_numero_documento',
+				'text' : 'Ingrese un Número de Documento',
+				'class' : 'label label-danger'
+			});
+			$('#error_empty_numero_documento').remove();
+			$('#PersonaNumeroDocumento').after(span);
+			ocultar_loading();
+			return;
+		}
 
 		$.get(base_url + 'admin/personas/busqueda_dni/' + numero_documento, function(data) {
 			ocultar_loading();
