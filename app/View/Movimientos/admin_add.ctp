@@ -72,6 +72,7 @@
 		</div>
 	</form>
 </div>
+<div style="clear:both"></div>
 
 <?php echo $this->Form->create('Movimiento', array('inputDefaults' => array('label' => false), 'role' => 'form', 'class' => 'movimiento_form')); ?>
 	<?php echo $this->Form->input('tipo_movimiento', array('type' => 'hidden'));?>
