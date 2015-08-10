@@ -1,6 +1,3 @@
-
-
-
 <div id="page-container" class="row">
 	<div class="form" id="search-form" <?php echo ($this->view === 'admin_index')? 'style="display:none;"' : ''?>>	<?php echo $this->Form->create('Vehiculo', array(
 		    'url' => array('controller' => 'Vehiculos', 'action' => 'find'),
@@ -70,7 +67,7 @@
 					</script>
 				<?php echo $this->Form->label('descripcion_check','Descripcion');?></div>
 				<div id="descripcion_input"  <?php echo (isset($this->passedArgs['descripcion'])  && $this->passedArgs['descripcion'] != null)? '' : 'style="display:none;"' ?> >
-				<?php echo $this->Form->input('descripcion', array('div' => false, "class" => "form-control", "disabled" => (isset($this->passedArgs["descripcion"])  && $this->passedArgs["descripcion"] != null )? false : "disabled"));?>				</div>
+				<?php echo $this->Form->input('descripcion', array('type' => 'text', 'div' => false, "class" => "form-control", "disabled" => (isset($this->passedArgs["descripcion"])  && $this->passedArgs["descripcion"] != null )? false : "disabled"));?>				</div>
 			</div><!-- .form-group -->
 															<div class="form-group col-sm-3">
 				<div>

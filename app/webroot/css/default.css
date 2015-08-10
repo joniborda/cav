@@ -752,7 +752,9 @@ input[type="radio"], input[type="checkbox"] {
 }
 
 .btn {
-
   margin-top: 22px;
+}
 
+.index .btn {
+    margin-top: 0;
 }
