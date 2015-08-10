@@ -128,7 +128,12 @@ public function admin_add() {
 		$this->render('admin_index');
 	}
 
-	public function admin_busqueda_patente($patente = null) {
+	/**
+	 * Busca el vehiculo por la patente y tambien si el tipo de movimiento es pasado
+	 * verifica sea el correcto para cargar
+	 *
+	*/
+	public function admin_busqueda_patente($patente = null, $tipo_movimiento = null) {
 
 		$this->layout = false;
 
@@ -150,8 +155,28 @@ public function admin_add() {
 		if ($vehiculo) {
 			$ret['response'] = true;
 			$ret['data'] = $vehiculo['Vehiculo'];
+			
+			if ($tipo_movimiento !== null) {
+				$ultimo_movimiento = $this->Vehiculo->Movimiento->find(
+					'first',
+					array(
+						'conditions' => array(
+							'vehiculo_id' => $vehiculo['Vehiculo']['id']
+						),
+						'order' => 'Movimiento.id desc',
+						'fields' => 'tipo_movimiento',
+						'recursive' => -1
+					)
+				);
+
+				if ($ultimo_movimiento && $ultimo_movimiento['Movimiento']['tipo_movimiento'] == $tipo_movimiento) {
+					$ret['response'] = false;
+					$ret['message'] = $tipo_movimiento;
+				}
+			}
 		}
 		
+
 		$this->set('response', $ret);
 	}
 

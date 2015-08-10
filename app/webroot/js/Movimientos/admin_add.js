@@ -1,3 +1,4 @@
+'use strict';
 function cargar_tab() {
 	$( "#tabs" ).tabs({
 		disabled: [ 1, 2, 3, 4 ]
@@ -21,7 +22,7 @@ $(function() {
 	$('#entrada').bind('click', function(event) {
 		event.preventDefault();
 		$('#MovimientoTipoMovimiento').val('ENTRADA');
-		$( "#tabs" ).tabs( "disable", 0 ).tabs( "enable", 1 ).tabs( "option", "active", 1);
+		$( '#tabs' ).tabs( 'disable', 0 ).tabs( 'enable', 1 ).tabs( 'option', 'active', 1);
 
 		input_ok('#preview_tipo_movmiento');
 
@@ -31,7 +32,7 @@ $(function() {
 	$('#salida').bind('click', function(event) {
 		event.preventDefault();
 		$('#MovimientoTipoMovimiento').val('SALIDA');
-		$( "#tabs" ).tabs( "disable", 0 ).tabs( "enable", 1 ).tabs( "option", "active", 1);
+		$( '#tabs' ).tabs( 'disable', 0 ).tabs( 'enable', 1 ).tabs( 'option', 'active', 1);
 
 		input_ok('#preview_tipo_movmiento');
 
@@ -43,12 +44,16 @@ $(function() {
 	$('#VehiculoAdminAddForm').bind('submit', function(event) {
 		event.preventDefault();
 		var patente,
-			span;
+			span,
+			tipo_movimiento;
 
 		mostar_loading();
 
 		patente = $('#VehiculoPatente').val();
+		tipo_movimiento = $('#preview_tipo_movmiento').val();
 		$('#error_empty_patente').remove();
+		$('#error_carga_patente').remove();
+
 		if (patente === '') {
 			span = $('<span>', {
 				'id' : 'error_empty_patente',
@@ -61,7 +66,7 @@ $(function() {
 			return;
 		}
 
-		$.get(base_url + 'admin/vehiculos/busqueda_patente/' + patente, function(data) {
+		$.get(base_url + 'admin/vehiculos/busqueda_patente/' + patente + '/' + tipo_movimiento, function(data) {
 			ocultar_loading();
 			if(data.response) {
 				$('#MovimientoVehiculoId').val(data.data.id);
@@ -80,16 +85,30 @@ $(function() {
 				$('#preview_vehiculo').val(patente);
 
 			} else {
-				$('<div>' , {
-					'id' : 'vehiculo'
-				}).html(vehiculo_form_add).dialog({
-					modal: true
-				});
-				$('#vehiculo_addPatente').val(patente);
-				$('#vehiculo_addPatenteMostrar').val(patente);
-				$('#vehiculo_addColor').focus();
+				if (data.message) {
+					span = $('<span>', {
+						'id' : 'error_carga_patente',
+						'text' : 'Esta vehiculo ya tiene una ' + data.message,
+						'class' : 'label label-danger'
+					});
+					$('#error_carga_patente').remove();
+					$('#VehiculoPatente').after(span);
+					ocultar_loading();
 
-				bind_vehiculos_form();
+				} else {
+
+					$('<div>' , {
+						'id' : 'vehiculo'
+					}).html(vehiculo_form_add).dialog({
+						modal: true
+					});
+					$('#vehiculo_addPatente').val(patente);
+					$('#vehiculo_addPatenteMostrar').val(patente);
+					$('#vehiculo_addColor').focus();
+
+					bind_vehiculos_form();
+				}
+
 			}
 		}, 'json').error(function() {
 			ocultar_loading();
@@ -165,6 +184,11 @@ $(function() {
 		$('#MovimientoInterno').val(null);
 
 		input_error('#preview_tipo_movmiento');
+
+		$('#error_empty_patente').remove();
+		$('#error_carga_patente').remove();
+		$('#VehiculoPatente').val(null);
+
 		toggle_salida(true);
 	});
 
@@ -247,7 +271,7 @@ $(function() {
 						.fadeOut(10000);
 
 						$('#MovimientoPersonaId').val(data.id);
-						$("#tabs").tabs( "disable", 2 ).tabs( "enable", 3 ).tabs( "option", "active", 3);
+						$('#tabs').tabs( 'disable', 2 ).tabs( 'enable', 3 ).tabs( 'option', 'active', 3);
 						$('#persona').dialog('destroy');
 
 						input_ok('#preview_persona');
@@ -288,12 +312,12 @@ $(function() {
 		var form_group = $('#preview_persona').closest('.form-group');
 		if (show) {
 			form_group.show();
-			$($("#tabs").find('[href="#tab-persona"]')).show();
-			$($("#tabs").find('[href="#tab-sector"]')).show();
+			$($('#tabs').find('[href="#tab-persona"]')).show();
+			$($('#tabs').find('[href="#tab-sector"]')).show();
 		} else {
 			form_group.hide();
-			$($("#tabs").find('[href="#tab-persona"]')).hide();
-			$($("#tabs").find('[href="#tab-sector"]')).hide();
+			$($('#tabs').find('[href="#tab-persona"]')).hide();
+			$($('#tabs').find('[href="#tab-sector"]')).hide();
 		}
 	}
 });
