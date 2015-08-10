@@ -51,6 +51,13 @@ public function admin_add() {
 		if ($this->request->is('post')) {
 			$this->Vehiculo->create();
 			$this->request->data['Vehiculo']['usuario_id'] = $this->Auth->user('id');
+
+			if (empty($this->request->data['Vehiculo']['patente'])) {
+				$this->Session->setFlash(__('DEBE INGRESAR UNA PATENTE.'), 'flash/error');
+				$this->cargar_modelos();
+				return;
+			}
+
 			if ($this->Vehiculo->save($this->request->data)) {
 				$this->Session->setFlash(__('El registro fue agregado correctamente.'), 'flash/success');
 				$this->redirect(array('action' => 'index'));
@@ -64,7 +71,7 @@ public function admin_add() {
 				$this->request->data['Vehiculo'][$key] = $value;
 			}
 		}
-				
+		$this->cargar_modelos();
 	}
 
 /**
@@ -206,5 +213,15 @@ public function admin_add() {
 			echo json_encode($ret);
 			die();
 		}
+	}
+
+	public function cargar_modelos() {
+		$this->set('tipoAutorizacions', 
+			array(
+				'INVITADO' => 'INVITADO',
+				'AUTORIZADO' => 'AUTORIZADO',
+				'PROVEEDOR' => 'PROVEEDOR'
+			)
+		);
 	}
 }

@@ -2,7 +2,7 @@
 	<div class="form p_form">
 		<?php echo $this->Form->create('vehiculo_add', array('inputDefaults' => array('label' => false), 'role' => 'form')); ?>
 		<fieldset>
-			<h2><?php echo __('Agregar Vehiculo'); ?></h2>
+			<h2><?php echo __('Agregar Vehículo'); ?></h2>
 			<hr />
 			<?php echo $this->Form->label('patente_mostrar', 'Patente'); ?>
 			<?php echo $this->Form->input('patente_mostrar', array('div' => false, "class" => 'form-control', 'disabled' => 'disabled'));?>

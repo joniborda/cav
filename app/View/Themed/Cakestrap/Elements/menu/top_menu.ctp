@@ -12,14 +12,7 @@
 		id="top_menu_div">
 	
 		<ul class="nav navbar-nav" style='width: 850px;'>
-			<h3 class="title">
-		CONTROL DE ACCESSO VEHICULAR
-				</h3>
-	 
- <!-- 	<li class="margin_button">
-		<a href="<?php //echo Router::url('/');?>" class="dropdown-toggle">Inicio </a>
-	</li>
- -->	
+			<h3 class="title">CONTROL DE ACCESSO VEHICULAR</h3>
 	
 <?php if (isset($is_admin) && $is_admin):?>
 	<li
@@ -88,12 +81,11 @@
 				<a href="<?php echo Router::url(array('controller' => 'movimientos', 'action' => 'index'))?>" class="dropdown-toggle">MOVIMIENTOS</a>
 			</li>
 			<li class="dropdown margin_button <?php echo ($current_controller == 'multas' && $current_action == 'admin_add') ? 'active': ''?>">
-				<a href="<?php echo Router::url(array('controller' => 'movimientos', 'action' => 'index'))?>" class="dropdown-toggle">
-				MULTAS</a>
+				<a href="<?php echo Router::url(array('controller' => 'movimientos', 'action' => 'index'))?>" class="dropdown-toggle">MULTAS</a>
 			</li>
-			
-	
-		
+			<li class="dropdown margin_button <?php echo ($current_controller == 'vehiculos' && $current_action == 'admin_add') ? 'active': ''?>">
+				<a href="<?php echo Router::url(array('controller' => 'vehiculos', 'action' => 'add'))?>" class="dropdown-toggle">CARGAR VEHÍCULOS</a>
+			</li>
 		</ul>
 		<!-- /.nav navbar-nav -->
 		<ul class="nav navbar-nav right">
