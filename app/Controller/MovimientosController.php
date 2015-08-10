@@ -88,7 +88,7 @@ public function admin_add() {
 		$this->set('tipoAutorizacions', 
 			array(
 				'INVITADO' => 'INVITADO',
-				'AUTORIZADO' => 'AUTORIZADO',
+			//	'AUTORIZADO' => 'AUTORIZADO',
 				'PROVEEDOR' => 'PROVEEDOR'
 			)
 		);
