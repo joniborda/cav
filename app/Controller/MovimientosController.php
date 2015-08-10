@@ -120,7 +120,7 @@ public function admin_add() {
 		$vehiculos = $this->Movimiento->Vehiculo->find('list');
 		$personas = $this->Movimiento->Persona->find('list');
 		$usuarios = $this->Movimiento->Usuario->find('list');
-						$this->set(compact('vehiculos', 'personas', 'usuarios'));
+		$this->set(compact('vehiculos', 'personas', 'usuarios'));
 	}
 
 /**

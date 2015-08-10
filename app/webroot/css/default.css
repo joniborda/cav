@@ -712,10 +712,21 @@ input[type="radio"], input[type="checkbox"] {
     color: #a94442;
 }
 
-#flash_alert {
+.alert-success, .alert-danger {
+	color: #FFF;
+	font-size: 2em;
+	text-align: center;
+	font-weight: bold;
+
+}
+
+.alert-success {
 	background-color: #5cb85c;
 }
 
+.alert-danger {
+	background-color: #E80404;
+}
 
 .p_form {
 	background-color: darkkhaki;
