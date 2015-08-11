@@ -18,26 +18,22 @@
 		
 		<div class="personas view">
 
-			<h2><?php  echo __('Persona'); ?></h2>
+			<h2><?php  echo __('PERSONA'); ?></h2>
 			<hr />
 			<div class="table-responsive">
-				<table class="table table-striped table-bordered">
+				<table class="table table-striped">
 					<tbody>
 						<tr>
-		<td class="col-sm-2"><strong><?php echo __('Id'); ?></strong></td>
-		<td class="col-sm-4">
-			<?php echo h($persona['Persona']['id']); ?>
-			&nbsp;
-		</td>
-		<td class="col-sm-2"><strong><?php echo __('Nombre'); ?></strong></td>
-		<td class="col-sm-4">
-			<?php echo h($persona['Persona']['nombre']); ?>
-			&nbsp;
-		</td>
-</tr>
-<tr>
-		<td class="col-sm-2"><strong><?php echo __('Apellido'); ?></strong></td>
-		<td class="col-sm-4">
+							<td class="col-sm-2"><strong>
+								<?php echo __('Nombre'); ?></strong></td>
+							<td class="col-sm-4">
+								<?php echo h($persona['Persona']['nombre']); ?>
+							</td>
+						</tr>
+						<tr>
+							<td class="col-sm-2">
+								<strong><?php echo __('Apellido'); ?></strong></td>
+							<td class="col-sm-4">
 			<?php echo h($persona['Persona']['apellido']); ?>
 			&nbsp;
 		</td>
@@ -62,7 +58,7 @@
 					
 			<div class="related">
 			
-				<h3><?php echo __('Movimientos'); ?></h3>
+				<h3><?php echo __('MOVIMIENTOS'); ?></h3>
 				
 				<?php if (!empty($persona['Movimiento'])): ?>
 					
@@ -70,7 +66,6 @@
 						<table class="table table-striped table-bordered">
 							<thead>
 								<tr>
-											<th><?php echo __('Id'); ?></th>
 		<th><?php echo __('Vehiculo Id'); ?></th>
 		<th><?php echo __('Persona Id'); ?></th>
 		<th><?php echo __('Tipo Movimiento'); ?></th>
@@ -78,7 +73,7 @@
 		<th><?php echo __('Interno'); ?></th>
 		<th><?php echo __('Fecha Carga'); ?></th>
 		<th><?php echo __('Usuario Id'); ?></th>
-									<th class="actions"><?php echo __('Actions'); ?></th>
+									<th class="actions"><?php echo __('OPCIONES'); ?></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -86,7 +81,6 @@
 										$i = 0;
 										foreach ($persona['Movimiento'] as $movimiento): ?>
 		<tr>
-			<td><?php echo $movimiento['id']; ?></td>
 			<td><?php echo $movimiento['vehiculo_id']; ?></td>
 			<td><?php echo $movimiento['persona_id']; ?></td>
 			<td><?php echo $movimiento['tipo_movimiento']; ?></td>
@@ -109,7 +103,7 @@
 
 				
 				<div class="actions">
-					<?php echo $this->Html->link('<i class="icon-plus icon-white"></i> '.__('Nuevo Movimiento'), array('controller' => 'movimientos', 'action' => 'add',h($persona['Persona']['id'])),array('class' => 'btn btn-primary', 'escape' => false)); ?>				</div><!-- /.actions -->
+					<?php echo $this->Html->link('<i class="icon-plus icon-white"></i> '.__('NUEVO MOVIMIENTO'), array('controller' => 'movimientos', 'action' => 'add',h($persona['Persona']['id'])),array('class' => 'btn btn-primary', 'escape' => false)); ?>				</div><!-- /.actions -->
 				
 			</div><!-- /.related -->
 

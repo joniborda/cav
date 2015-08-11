@@ -74,6 +74,9 @@ class AppController extends Controller {
 
 		$this->loadModel('VVehiculosAdentro');
 		$this->set('count_inside', $this->VVehiculosAdentro->find('count'));
+
+		$this->loadModel('VVehiculosExcedido');
+		$this->set('count_inside2', $this->VVehiculosExcedido->find('count'));
 		
 		setlocale(LC_TIME, 'Spanish');
 		setlocale(LC_TIME, 'es_AR.utf8');

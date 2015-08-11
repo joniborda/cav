@@ -118,7 +118,8 @@ $(function() {
 
 	$('#PersonaAdminAddForm').bind('submit', function(event) {
 		event.preventDefault();
-		var numero_documento;
+		var numero_documento,
+		 	span;
 
 		mostar_loading();
 
@@ -167,6 +168,9 @@ $(function() {
 		event.preventDefault();
 		$('#MovimientoSector').val($('#SectorSector').val());
 		$('#MovimientoInterno').val($('#SectorInterno').val());
+		$('#MovimientoHorasPredio').val($('#SectorHorasPredio').val());
+		$('#MovimientoMinutosPredio').val($('#SectorMinutosPredio').val());
+
 		$( "#tabs" ).tabs( "disable", 3 ).tabs( "enable", 4 ).tabs( "option", "active", 4);
 
 		$('#MovimientoAdminAddForm').submit();

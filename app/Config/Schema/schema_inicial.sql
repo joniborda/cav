@@ -1637,3 +1637,16 @@ CREATE OR REPLACE VIEW v_vehiculos_adentro AS
 
 ALTER TABLE v_vehiculos_adentro
   OWNER TO postgres;
+
+CREATE OR REPLACE VIEW v_vehiculos_excedidos AS 
+ SELECT m1.vehiculo_id, v.patente, v.tipo_autorizacion, m1.id AS movimiento_id, m1.persona_id, m1.sector, m1.interno, m1.fecha_carga, m1.usuario_id
+   FROM movimientos m1
+   JOIN vehiculos v ON v.id = m1.vehiculo_id
+  WHERE (m1.id IN ( SELECT m.id
+      FROM movimientos m
+     WHERE m.vehiculo_id = m1.vehiculo_id
+     ORDER BY m.id DESC
+    LIMIT 1)) AND m1.tipo_movimiento::text = 'ENTRADA'::text AND (m1.fecha_carga + ((COALESCE(m1.horas_predio, 0) || 'hours'::text)::interval) + ((COALESCE(m1.minutos_predio, 0) || 'minutes'::text)::interval)) > now();
+
+ALTER TABLE v_vehiculos_excedidos
+  OWNER TO jborda;

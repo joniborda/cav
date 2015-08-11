@@ -164,7 +164,7 @@
 	</div>
 	<div id="page-content" class="col-sm-12">
 		<div class="vVehiculosAdentros index">
-			<h2 style='display:inline;'>Vehículos adentro</h2>
+			<h2 style='display:inline;'>VEHÍCULOS ADENTRO</h2>
 			<hr />
 			<div class="table-responsive">
 				<table cellpadding="0" cellspacing="0" class="table table-striped table-bordered">

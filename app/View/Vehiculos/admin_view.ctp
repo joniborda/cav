@@ -18,17 +18,12 @@
 		
 		<div class="vehiculos view">
 
-			<h2><?php  echo __('Vehiculo'); ?></h2>
+			<h2><?php  echo __('VEHÍCULO'); ?></h2>
 			<hr />
 			<div class="table-responsive">
-				<table class="table table-striped table-bordered">
+				<table class="table table-striped">
 					<tbody>
 						<tr>
-		<td class="col-sm-2"><strong><?php echo __('Id'); ?></strong></td>
-		<td class="col-sm-4">
-			<?php echo h($vehiculo['Vehiculo']['id']); ?>
-			&nbsp;
-		</td>
 		<td class="col-sm-2"><strong><?php echo __('Patente'); ?></strong></td>
 		<td class="col-sm-4">
 			<?php echo h($vehiculo['Vehiculo']['patente']); ?>
@@ -62,15 +57,14 @@
 					
 			<div class="related">
 			
-				<h3><?php echo __('Movimientos'); ?></h3>
+				<h3><?php echo __('MOVIMIENTOS'); ?></h3>
 				
 				<?php if (!empty($vehiculo['Movimiento'])): ?>
 					
 					<div class="table-responsive">
-						<table class="table table-striped table-bordered">
+						<table class="table table-striped ">
 							<thead>
 								<tr>
-											<th><?php echo __('Id'); ?></th>
 		<th><?php echo __('Vehiculo Id'); ?></th>
 		<th><?php echo __('Persona Id'); ?></th>
 		<th><?php echo __('Tipo Movimiento'); ?></th>
@@ -78,7 +72,7 @@
 		<th><?php echo __('Interno'); ?></th>
 		<th><?php echo __('Fecha Carga'); ?></th>
 		<th><?php echo __('Usuario Id'); ?></th>
-									<th class="actions"><?php echo __('Actions'); ?></th>
+									<th class="actions"><?php echo __('OPCIONES'); ?></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -86,7 +80,6 @@
 										$i = 0;
 										foreach ($vehiculo['Movimiento'] as $movimiento): ?>
 		<tr>
-			<td><?php echo $movimiento['id']; ?></td>
 			<td><?php echo $movimiento['vehiculo_id']; ?></td>
 			<td><?php echo $movimiento['persona_id']; ?></td>
 			<td><?php echo $movimiento['tipo_movimiento']; ?></td>
@@ -96,8 +89,7 @@
 			<td><?php echo $movimiento['usuario_id']; ?></td>
 		<td class="actions">
 			<?php echo $this->Html->link('<span class="glyphicon glyphicon-list-alt" title="Ver"></span>', array('controller' => 'movimientos', 'action' => 'view', $movimiento['id']), array('escape'=>false)); ?>
-			<?php echo $this->Html->link('<span class="glyphicon glyphicon-wrench" title="Editar"></span>', array('controller' => 'movimientos', 'action' => 'edit', $movimiento['id']), array('escape'=>false)); ?>
-			<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-trash" title="Borrar"></span>', array('controller' => 'movimientos', 'action' => 'delete', $movimiento['id']), array('escape'=>false), __('¿Estas seguro que desea borrar # %s?', $movimiento['id'])); ?>
+
 		</td>
 		</tr>
 	<?php endforeach; ?>

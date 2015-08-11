@@ -1,7 +1,7 @@
 <div id="page-container" class="row">
 		<div id="page-content" class="col-sm-12">		
 		<div class="movimientos view">
-			<h2><?php  echo __('Movimiento'); ?></h2>
+			<h2><?php  echo __('MOVIMIENTO'); ?></h2>
 			<hr />
 			<div class="table-responsive">
 				<table class="table table-striped table-bordered">

@@ -90,6 +90,8 @@
 	<?php echo $this->Form->input('persona_id', array('type' => 'hidden'));?>
 	<?php echo $this->Form->input('sector', array('type' => 'hidden'));?>
 	<?php echo $this->Form->input('interno', array('type' => 'hidden'));?>
+	<?php echo $this->Form->input('horas_predio', array('type' => 'hidden'));?>
+	<?php echo $this->Form->input('minutos_predio', array('type' => 'hidden'));?>
 <?php echo $this->Form->end(); ?>
 		</div><!-- /.form -->
 			
