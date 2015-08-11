@@ -1,5 +1,5 @@
 <div id="page-container" class="row">
-	<div id="page-content" class="col-sm-12">
+	<div id="page-content" class="col-sm-12" align="center">
 		<div class="movimientos form p_form">
 <div class="col-sm-2"></div>
 <div id="tabs" class="col-sm-6">
@@ -41,14 +41,21 @@
   </div>
   <div id="tab-sector">
 	<?php echo $this->Form->create('Sector', array('inputDefaults' => array('label' => false), 'role' => 'form')); ?>
-    	<?php echo $this->Form->label('sector', 'SECTOR A DONDE SE DIRIGE'); ?>
-		<?php echo $this->Form->input('sector', array('type' => 'text', 'div' => false, "class" => 'form-control input_mediano'));?>
-
-		<?php echo $this->Form->label('interno', 'NÚMERO DE INTERNO'); ?>
-		<?php echo $this->Form->input('interno', array('type' => 'text', 'div' => false, "class" => 'form-control input_mediano'));?>
-
-		<?php echo $this->Form->label('horas_predio', 'Cantidad de tiempo en el predio'); ?>
-		<?php echo $this->Form->input('horas_predio', array('type' => 'time', 'div' => false, "class" => 'form-control input_mediano'));?>
+    	<div class="row">
+    		<div class="col-sm-3">
+    			<?php echo $this->Form->label('sector', 'SECTOR A DONDE SE DIRIGE'); ?>
+				<?php echo $this->Form->input('sector', array('type' => 'text', 'div' => false, "class" => 'form-control input_mediano'));?>
+			</div>
+			<div class="col-sm-3">
+				<?php echo $this->Form->label('interno', 'NÚMERO DE INTERNO'); ?>
+				<?php echo $this->Form->input('interno', array('type' => 'text', 'div' => false, "class" => 'form-control input_mediano'));?>
+			</div>
+			<div class="col-sm-4">
+				<?php echo $this->Form->label('horas_predio', 'Cantidad de horas en el predio'); ?>
+				<?php echo $this->Form->input('horas_predio', array('type' => 'number', 'div' => false, "class" => 'form-control input_muy_corto','min'=>'0','max'=>'24','value'=>'0'));?> :
+				<?php echo $this->Form->input('minutos_predio', array('type' => 'number', 'div' => false, "class" => 'form-control input_muy_corto','min'=>'10','max'=>'50','step'=>'10','value'=>'10'));?>
+			</div>
+		</div>
 		<div class="row">
 			<a class="btn btn-danger col-md-6" id="sector_atras" href="#">ATRÁS</a>
 			<button class="btn btn-success col-md-6">SIGUIENTE</button>
