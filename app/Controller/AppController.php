@@ -71,6 +71,9 @@ class AppController extends Controller {
 		$this->set('current_url', $this->getUrl(true));
 		$this->set('current_controller', Inflector::underscore($this->request->controller));
 		$this->set('current_action', $this->request->action);
+
+		$this->loadModel('VVehiculosAdentro');
+		$this->set('count_inside', $this->VVehiculosAdentro->find('count'));
 		
 		setlocale(LC_TIME, 'Spanish');
 		setlocale(LC_TIME, 'es_AR.utf8');

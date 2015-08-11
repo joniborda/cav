@@ -279,14 +279,6 @@ a {
 	.sin_margen {
 		margin: 0;
 	}
-	#boton_ocultar_menu_top {
-		margin: auto;
-		text-align: center;
-		display: block;
-		width: 100%;
-		padding: auto;
-		color: black;
-	}
 	.grupo {
 		min-height: 40px;
 	}
@@ -773,4 +765,13 @@ input[type="radio"], input[type="checkbox"] {
 
 .navbar-default {
     background-color: seagreen;
+}
+
+#boton_ocultar_menu_top {
+	margin: auto;
+	text-align: center;
+	display: block;
+	width: 100%;
+	padding: auto;
+	color: black;
 }

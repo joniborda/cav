@@ -1626,3 +1626,14 @@ GRANT ALL ON SCHEMA public TO PUBLIC;
 -- PostgreSQL database dump complete
 --
 
+CREATE OR REPLACE VIEW v_vehiculos_adentro AS 
+ SELECT m1.vehiculo_id
+   FROM movimientos m1
+  WHERE (m1.id IN ( SELECT m.id
+           FROM movimientos m
+          WHERE m.vehiculo_id = m1.vehiculo_id
+          ORDER BY m.id DESC
+         LIMIT 1)) AND m1.tipo_movimiento::text = 'ENTRADA'::text;
+
+ALTER TABLE v_vehiculos_adentro
+  OWNER TO postgres;

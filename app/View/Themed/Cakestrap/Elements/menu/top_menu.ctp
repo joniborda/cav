@@ -11,7 +11,7 @@
 	<div class="collapse navbar-collapse navbar-ex1-collapse"
 		id="top_menu_div">
 	
-		<ul class="nav navbar-nav" style='width: 850px;'>
+		<ul class="nav navbar-nav col-xs-10">
 			<h3 class="title">CONTROL DE ACCESSO VEHICULAR</h3>
 	
 <?php if (isset($is_admin) && $is_admin):?>
@@ -86,9 +86,15 @@
 			<li class="dropdown margin_button <?php echo ($current_controller == 'vehiculos' && $current_action == 'admin_add') ? 'active': ''?>">
 				<a href="<?php echo Router::url(array('controller' => 'vehiculos', 'action' => 'add'))?>" class="dropdown-toggle">CARGAR VEHÍCULOS</a>
 			</li>
+			<li class="dropdown margin_button <?php echo ($current_controller == 'v_vehiculos_adentros') ? 'active': ''?>">
+				<a href="<?php echo Router::url(array('controller' => 'v_vehiculos_adentros', 'action' => 'index'))?>" class="dropdown-toggle">
+					VEHÍCULOS ADENTRO
+					<span class="badge"><?php echo $count_inside; ?></span>
+				</a>
+			</li>
 		</ul>
 		<!-- /.nav navbar-nav -->
-		<ul class="nav navbar-nav right">
+		<ul class="nav navbar-nav right col-xs-2">
 		<?php
 		
 if ($current_user) {
