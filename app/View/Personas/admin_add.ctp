@@ -9,14 +9,15 @@
 				<fieldset>
 					<h2><?php echo __('Agregar Persona'); ?>										</h2>
 				<hr />
+
+		<?php echo $this->Form->label('numero_documento', 'Numero Documento'); ?>
+		<?php echo $this->Form->input('numero_documento', array('div' => false, "class" => 'form-control'));?>
+
 		<?php echo $this->Form->label('nombre', 'Nombre'); ?>
 		<?php echo $this->Form->input('nombre', array('div' => false, "class" => 'form-control'));?>
 
 		<?php echo $this->Form->label('apellido', 'Apellido'); ?>
 		<?php echo $this->Form->input('apellido', array('div' => false, "class" => 'form-control'));?>
-
-		<?php echo $this->Form->label('numero_documento', 'Numero Documento'); ?>
-		<?php echo $this->Form->input('numero_documento', array('div' => false, "class" => 'form-control'));?>
 
 		<?php echo $this->Form->label('telefono', 'Telefono'); ?>
 		<?php echo $this->Form->input('telefono', array('div' => false, "class" => 'form-control'));?>

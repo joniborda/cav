@@ -734,6 +734,7 @@ input[type="radio"], input[type="checkbox"] {
 	color: #2E2E2E;
 	margin: 10px 0px;
 	padding: 20px;
+	text-transform: uppercase;
 }
 
 .form-group {

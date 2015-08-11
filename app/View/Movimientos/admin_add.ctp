@@ -46,6 +46,9 @@
 
 		<?php echo $this->Form->label('interno', 'NÚMERO DE INTERNO'); ?>
 		<?php echo $this->Form->input('interno', array('type' => 'text', 'div' => false, "class" => 'form-control input_mediano'));?>
+
+		<?php echo $this->Form->label('horas_predio', 'Cantidad de tiempo en el predio'); ?>
+		<?php echo $this->Form->input('horas_predio', array('type' => 'time', 'div' => false, "class" => 'form-control input_mediano'));?>
 		<div class="row">
 			<a class="btn btn-danger col-md-6" id="sector_atras" href="#">ATRÁS</a>
 			<button class="btn btn-success col-md-6">SIGUIENTE</button>

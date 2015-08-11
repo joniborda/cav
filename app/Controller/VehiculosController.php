@@ -68,6 +68,7 @@ public function admin_add() {
 		
 		if (!empty($this->request->query)) {
 			foreach ($this->request->query as $key => $value) {
+
 				$this->request->data['Vehiculo'][$key] = $value;
 			}
 		}
