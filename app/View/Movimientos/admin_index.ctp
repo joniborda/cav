@@ -188,11 +188,10 @@
 		<?php endif;?></td>
 		<td><?php echo h($movimiento['Movimiento']['tipo_movimiento']); ?>&nbsp;</td>
 		<td><?php echo h($movimiento['Movimiento']['sector']); ?>&nbsp;</td>
-		<td><?php echo h($movimiento['Movimiento']['interno']); ?>&nbsp;</td>
+		<td><?php echo $movimiento['Movimiento']['interno']; ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link('<span class="glyphicon glyphicon-list-alt" title="Ver"></span>', array('action' => 'view', $movimiento['Movimiento']['id']), array('escape'=>false)); ?>
-			<?php echo $this->Html->link('<span class="glyphicon glyphicon-wrench" title="Editar"></span>', array('action' => 'edit', $movimiento['Movimiento']['id']), array('escape'=>false)); ?>
-			<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-trash" title="Borrar"></span>', array('action' => 'delete', $movimiento['Movimiento']['id']), array('escape'=>false), __('¿Estas seguro que desea borrar # %s?', $movimiento['Movimiento']['id'])); ?>
+	
 		</td>
 	</tr>
 <?php endforeach; ?>

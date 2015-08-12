@@ -195,7 +195,7 @@
 						<?php endif;?>
 					</td>
 					<td><?php echo h($vVehiculosAdentro['VVehiculosAdentro']['sector']); ?>&nbsp;</td>
-					<td><?php echo h($vVehiculosAdentro['VVehiculosAdentro']['interno']); ?>&nbsp;</td>
+					<td><?php echo $vVehiculosAdentro['VVehiculosAdentro']['interno']; ?>&nbsp;</td>
 					<td class="actions">
 						<?php echo $this->Html->link('<span class="glyphicon glyphicon-list-alt" title="Ver"></span>', array('controller' => 'movimientos', 'action' => 'view', $vVehiculosAdentro['Movimiento']['id']), array('escape'=>false)); ?>
 					</td>

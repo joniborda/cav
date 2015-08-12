@@ -21,7 +21,7 @@
 			<h2><?php  echo __('V Vehiculos Adentro'); ?></h2>
 			<hr />
 			<div class="table-responsive">
-				<table class="table table-striped table-bordered">
+				<table class="table table-striped ">
 					<tbody>
 													<tr>
 								<td class="col-sm-2"><strong>Persona</strong></td>
