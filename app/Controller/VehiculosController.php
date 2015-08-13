@@ -154,7 +154,7 @@ public function admin_add() {
 		$vehiculo = $this->Vehiculo->find('first', 
 			array(
 				'conditions' => array(
-					'patente' => $patente
+					'UPPER(TRIM(patente))' => strtoupper(trim($patente))
 				),
 				'recursive' => -1
 			)

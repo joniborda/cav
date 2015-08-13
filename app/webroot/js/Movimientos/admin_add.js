@@ -86,30 +86,46 @@ $(function() {
 
 			} else {
 				if (data.message) {
+					$('#error_carga_patente').remove();
+
 					span = $('<span>', {
 						'id' : 'error_carga_patente',
 						'text' : 'Esta vehiculo ya tiene una ' + data.message,
 						'class' : 'label label-danger'
 					});
-					$('#error_carga_patente').remove();
+					
 					$('#VehiculoPatente').after(span);
-					ocultar_loading();
 
 				} else {
-
-					$('<div>' , {
-						'id' : 'vehiculo'
-					}).html(vehiculo_form_add).dialog({
-						modal: true
+					// Si llego es porque el vehiculo es nuevo
+					if (tipo_movimiento == 'SALIDA') {
+						span = $('<span>', {
+						'id' : 'error_carga_patente',
+						'text' : 'El vehículo no se encuentra ingresado en el sistema',
+						'class' : 'label label-danger'
 					});
+					
+					$('#VehiculoPatente').after(span);
+					
+					} else {
+
+						$('<div>' , {
+							'id' : 'vehiculo'
+						}).html(vehiculo_form_add).dialog({
+							modal: true
+						});
+
+						bind_vehiculos_form();
+					}
 					$('#vehiculo_addPatente').val(patente);
 					$('#vehiculo_addPatenteMostrar').val(patente);
 					$('#vehiculo_addColor').focus();
 
-					bind_vehiculos_form();
+					
 				}
 
 			}
+			ocultar_loading();
 		}, 'json').error(function() {
 			ocultar_loading();
 			alert('Asegurese de estar logueado');
