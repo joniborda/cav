@@ -141,7 +141,7 @@ public function admin_add() {
 		$persona = $this->Persona->find('first', 
 			array(
 				'conditions' => array(
-					'numero_documento' => $numero_documento
+					'UPPER(TRIM(numero_documento))' => strtoupper(trim($numero_documento))
 				),
 				'recursive' => -1
 			)

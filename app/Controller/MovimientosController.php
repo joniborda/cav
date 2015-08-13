@@ -59,6 +59,8 @@ public function admin_add() {
 				)
 			));
 
+			$this->request->data['Movimiento']['tipo_movimiento'] = strtoupper($this->request->data['Movimiento']['tipo_movimiento']);
+			
 			if (
 				$this->request->data['Movimiento']['tipo_movimiento'] === 'ENTRADA' &&
 				empty($this->request->data['Movimiento']['persona_id']) &&
