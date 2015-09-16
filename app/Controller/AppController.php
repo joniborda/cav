@@ -63,6 +63,8 @@ class AppController extends Controller {
 		'admin/usuarios/logout',
 	);
 	const ADMIN_GROUP = 'administrador';
+	const SEGURIDAD = 'seguridad';
+
 
 	public function beforeFilter() {
 		$this->request->params['admin'] = 'admin';
@@ -81,7 +83,7 @@ class AppController extends Controller {
 		setlocale(LC_TIME, 'Spanish');
 		setlocale(LC_TIME, 'es_AR.utf8');
 		
-// 		$this->_cargar_todas_url();
+ 		//$this->_cargar_todas_url();
 	}
 	
 	public function getLayout() {
@@ -119,6 +121,10 @@ class AppController extends Controller {
 				switch ($grupo['descripcion']) {
 					case self::ADMIN_GROUP:
 						$this->set('is_admin', true);
+						return true;
+						break;
+					case self::SEGURIDAD:
+						$this->set('seguridad', true);
 						return true;
 						break;
 				}

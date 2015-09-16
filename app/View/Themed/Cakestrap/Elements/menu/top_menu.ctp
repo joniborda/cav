@@ -74,15 +74,18 @@
 				</ul>
 			</li>	
 <?php endif;?>
+
 			<li class="dropdown margin_button <?php echo ($current_controller == 'movimientos' && $current_action == 'admin_add') ? 'active': ''?>">
 				<a href="<?php echo Router::url(array('controller' => 'movimientos', 'action' => 'add'))?>" class="dropdown-toggle">CARGA MOVIMIENTOS</a>
 			</li>
 			<li class="dropdown margin_button <?php echo ($current_controller == 'movimientos' && $current_action == 'admin_index') ? 'active': ''?>">
 				<a href="<?php echo Router::url(array('controller' => 'movimientos', 'action' => 'index'))?>" class="dropdown-toggle">MOVIMIENTOS</a>
 			</li>
+			<?php if (!isset($seguridad) || (isset($seguridad) && !$seguridad)) : ?>
 			<li class="dropdown margin_button <?php echo ($current_controller == 'vehiculos' && $current_action == 'admin_add') ? 'active': ''?>">
 				<a href="<?php echo Router::url(array('controller' => 'vehiculos', 'action' => 'add'))?>" class="dropdown-toggle">CARGAR VEHÍCULOS</a>
 			</li>
+		<?php endif; ?>
 			<li class="dropdown margin_button <?php echo ($current_controller == 'v_vehiculos_adentros') ? 'active': ''?>">
 				<a href="<?php echo Router::url(array('controller' => 'v_vehiculos_adentros', 'action' => 'index'))?>" class="dropdown-toggle">
 					VEHÍCULOS ADENTRO
@@ -98,6 +101,7 @@
 			<li class="dropdown margin_button <?php echo ($current_controller == 'movimientos' && $current_action == 'admin_add') ? 'active': ''?>">
 				<a href="<?php echo Router::url(array('controller' => 'movimientos', 'action' => 'add'))?>" class="dropdown-toggle">MULTAS</a>
 			</li>
+
 		</ul>
 		<!-- /.nav navbar-nav -->
 		<ul class="nav navbar-nav right col-xs-2">
