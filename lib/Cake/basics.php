@@ -230,8 +230,6 @@ if (!function_exists('h')) {
 					$texts[$k] = h($t, $double, $charset);
 				}
 				return $texts;
-		} elseif (is_numeric($text) && !is_float($text)) {
-			return number_format($text, 0, ',','.');
 		}
 		
 		

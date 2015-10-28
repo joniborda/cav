@@ -58,7 +58,18 @@ public function admin_add() {
 				return;
 			}
 
+
+
 			if ($this->Vehiculo->save($this->request->data)) {
+				$vehiculo_id = $this->Vehiculo->getLastInsertID();
+				foreach ($this->request->data['Vehiculo']['dia'] as $dia) {
+					$this->Vehiculo->DiaVehiculo->create();
+					$this->Vehiculo->DiaVehiculo->save(array(
+						'vehiculo_id' => $vehiculo_id,
+						'dia' => $dia
+					))	;
+				}
+
 				$this->Session->setFlash(__('El registro fue agregado correctamente.'), 'flash/success');
 				$this->redirect(array('action' => 'index'));
 			} else {
@@ -87,7 +98,23 @@ public function admin_add() {
 		if (!$this->Vehiculo->exists($id)) {
 			throw new NotFoundException(__('Invalid vehiculo'));
 		}
+
 		if ($this->request->is('post') || $this->request->is('put')) {
+
+				$this->Vehiculo->DiaVehiculo->deleteAll(array('vehiculo_id' => $id));
+				if(isset($this->request->data['Vehiculo']['dia'])){
+				foreach ($this->request->data['Vehiculo']['dia'] as $dia_vehiculo) { 
+					$this->Vehiculo->DiaVehiculo->create();
+
+					$this->Vehiculo->DiaVehiculo->save(
+						array(
+							'vehiculo_id' => $id,
+							'dia' =>$dia_vehiculo
+						)
+					);
+				}
+
+			}	
 			if ($this->Vehiculo->save($this->request->data)) {
 				$this->Session->setFlash(__('El registro fue guardado correctamente.'), 'flash/success');
 				$this->redirect(array('action' => 'index'));
@@ -96,8 +123,17 @@ public function admin_add() {
 			}
 		} else {
 			$options = array('conditions' => array('Vehiculo.' . $this->Vehiculo->primaryKey => $id));
+
 			$this->request->data = $this->Vehiculo->find('first', $options);
+
+			$dias = array();
+			foreach ($this->request->data['DiaVehiculo'] as $dia_vehiculo) {
+				$dias[] = $dia_vehiculo['dia'];
+			}
+			$this->set('dias', $dias);
+
 		}
+		$this->cargar_modelos();
 					}
 
 /**
@@ -219,8 +255,8 @@ public function admin_add() {
 	public function cargar_modelos() {
 		$this->set('tipoAutorizacions', 
 			array(
-				'INVITADO' => 'INVITADO',
 				'AUTORIZADO' => 'AUTORIZADO',
+				'INVITADO' => 'INVITADO',
 				'PROVEEDOR' => 'PROVEEDOR'
 			)
 		);

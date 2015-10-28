@@ -50,50 +50,85 @@ class MovimientosController extends AppController {
 public function admin_add() {
 		if ($this->request->is('post')) {
 			$this->Movimiento->create();
-			$this->request->data['Movimiento']['usuario_id'] = $this->Auth->user('id');
 
+			$this->request->data['Movimiento']['usuario_id'] = $this->Auth->user('id');
+			$hoy=date('Y-m-d');
+
+		
 			$vehiculo_autorizado = $this->Movimiento->Vehiculo->find('first', array(
 				'conditions' => array(
 					'id' => $this->data['Movimiento']['vehiculo_id'],
-					'tipo_autorizacion' => 'AUTORIZADO'
+					'desde <= ?' => $hoy,
+					array(
+						'OR' => array(
+							'hasta >= ' => $hoy,
+							'hasta is null'
+						)
+					)
+
+
 				)
 			));
 
-			$this->request->data['Movimiento']['tipo_movimiento'] = strtoupper($this->request->data['Movimiento']['tipo_movimiento']);
-			
-			if (
-				$this->request->data['Movimiento']['tipo_movimiento'] === 'ENTRADA' &&
-				empty($this->request->data['Movimiento']['persona_id']) &&
-				$vehiculo_autorizado === false
-			) {
-				$this->Session->setFlash(__('Debe ingresar una persona.'), 'flash/error');
-				$this->redirect(array('action' => 'admin_add'));
-
-			} else {
-				if ($this->Movimiento->save($this->request->data)) {
-					$this->Session->setFlash(__('El movimiento fue guardado correctamente.'), 'flash/success');
-					$this->redirect(array('action' => 'admin_add'));
-				} else {
-					$this->Session->setFlash(__('No se pudo agregar el movimiento. Por favor, vuelva a intentarlo.'), 'flash/error');
-					$this->redirect(array('action' => 'admin_add'));
+			if($vehiculo_autorizado!=null){
+			foreach ($vehiculo_autorizado['DiaVehiculo'] as $dato) {
+				if ($dato['dia']==date('N'))
+				{
+					$vehiculo_ok=true;
+					break;
+				}
+				else
+				{
+					$vehiculo_ok=false;
 				}
 			}
-			
+		}
+		else{
+
+			$vehiculo_ok=false;
 		}
 
+			$this->request->data['Movimiento']['tipo_movimiento'] = strtoupper($this->request->data['Movimiento']['tipo_movimiento']);
+			if ($this->request->data['Movimiento']['tipo_movimiento'] === 'ENTRADA' && $vehiculo_ok==true)
+			 {
+				if ($this->Movimiento->save($this->request->data)) {
+					$this->Session->setFlash(__('Entrada autorizada.'), 'flash/success');
+					$this->redirect(array('action' => 'admin_add'));
+				 }  
+				else {
+						$this->Session->setFlash(__('Error - El vehiculo no se guardo.'), 'flash/error');
+						$this->redirect(array('action' => 'admin_add'));
+					 }
+			  }  
+				elseif ($this->request->data['Movimiento']['tipo_movimiento'] === 'SALIDA') 
+				{
+   					 
+					if ($this->Movimiento->save($this->request->data)) {
+					$this->Session->setFlash(__('Salida autorizada.'), 'flash/success');
+					$this->redirect(array('action' => 'admin_add'));
+				 }  
+				else {
+						$this->Session->setFlash(__('Error - El vehiculo no se guardo.'), 'flash/error');
+						$this->redirect(array('action' => 'admin_add'));
+					 }
+   					 
+				} 
+
+				else {
+						$this->Session->setFlash(__('El vehiculo no esta autorizado.'), 'flash/error');
+						$this->redirect(array('action' => 'admin_add'));
+					}
+
+
+					
+			
+		}
 		if (!empty($this->request->query)) {
 			foreach ($this->request->query as $key => $value) {
 				$this->request->data['Movimiento'][$key] = $value;
 			}
 		}
 
-		$this->set('tipoAutorizacions', 
-			array(
-				'INVITADO' => 'INVITADO',
-			//	'AUTORIZADO' => 'AUTORIZADO',
-				'PROVEEDOR' => 'PROVEEDOR'
-			)
-		);
 	}
 
 /**

@@ -82,6 +82,9 @@
 				<a href="<?php echo Router::url(array('controller' => 'movimientos', 'action' => 'index'))?>" class="dropdown-toggle">MOVIMIENTOS</a>
 			</li>
 			<?php if (!isset($seguridad) || (isset($seguridad) && !$seguridad)) : ?>
+			<li class="dropdown margin_button <?php echo ($current_controller == 'vehiculos' && $current_action == 'admin_index') ? 'active': ''?>">
+				<a href="<?php echo Router::url(array('controller' => 'vehiculos', 'action' => 'index'))?>" class="dropdown-toggle">VEHICULOS</a>
+			</li>
 			<li class="dropdown margin_button <?php echo ($current_controller == 'vehiculos' && $current_action == 'admin_add') ? 'active': ''?>">
 				<a href="<?php echo Router::url(array('controller' => 'vehiculos', 'action' => 'add'))?>" class="dropdown-toggle">CARGAR VEHÍCULOS</a>
 			</li>

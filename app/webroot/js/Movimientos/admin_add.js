@@ -73,7 +73,7 @@ $(function() {
 
 				if (
 					$('#MovimientoTipoMovimiento').val() === 'SALIDA' ||
-					data.data.tipo_autorizacion === 'AUTORIZADO'
+					data.data.tipo_autorizacion === 'AUTORIZADO' || data.data.tipo_autorizacion === 'INVITADO' || data.data.tipo_autorizacion === 'PROVEEDOR'
 				) {
 					$('#MovimientoAdminAddForm').submit();
 					return;

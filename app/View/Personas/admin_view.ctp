@@ -73,7 +73,7 @@
 		<th><?php echo __('Interno'); ?></th>
 		<th><?php echo __('Fecha Carga'); ?></th>
 		<th><?php echo __('Usuario Id'); ?></th>
-									<th class="actions"><?php echo __('OPCIONES'); ?></th>
+									<!-- <th class="actions"><?php //echo __('OPCIONES'); ?></th>-->
 								</tr>
 							</thead>
 							<tbody>
@@ -88,10 +88,10 @@
 			<td><?php echo $movimiento['interno']; ?></td>
 			<td><?php echo $movimiento['fecha_carga']; ?></td>
 			<td><?php echo $movimiento['usuario_id']; ?></td>
-		<td class="actions">
-			<?php echo $this->Html->link('<span class="glyphicon glyphicon-list-alt" title="Ver"></span>', array('controller' => 'movimientos', 'action' => 'view', $movimiento['id']), array('escape'=>false)); ?>
+		<!--<td class="actions">
+			<?php // echo $this->Html->link('<span class="glyphicon glyphicon-list-alt" title="Ver"></span>', array('controller' => 'movimientos', 'action' => 'view', $movimiento['id']), array('escape'=>false)); ?>
 			
-		</td>
+		</td>-->
 		</tr>
 	<?php endforeach; ?>
 							</tbody>

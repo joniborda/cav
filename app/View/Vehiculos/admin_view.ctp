@@ -65,14 +65,13 @@
 						<table class="table table-striped ">
 							<thead>
 								<tr>
-		<th><?php echo __('Vehiculo Id'); ?></th>
-		<th><?php echo __('Persona Id'); ?></th>
+		
 		<th><?php echo __('Tipo Movimiento'); ?></th>
 		<th><?php echo __('Sector'); ?></th>
 		<th><?php echo __('Interno'); ?></th>
 		<th><?php echo __('Fecha Carga'); ?></th>
 		<th><?php echo __('Usuario Id'); ?></th>
-									<th class="actions"><?php echo __('OPCIONES'); ?></th>
+									<!-- <th class="actions"><?php echo __('OPCIONES'); ?></th> -->
 								</tr>
 							</thead>
 							<tbody>
@@ -80,18 +79,18 @@
 										$i = 0;
 										foreach ($vehiculo['Movimiento'] as $movimiento): ?>
 		<tr>
-			<td><?php echo $movimiento['vehiculo_id']; ?></td>
-			<td><?php echo $movimiento['persona_id']; ?></td>
+			
 			<td><?php echo $movimiento['tipo_movimiento']; ?></td>
 			<td><?php echo $movimiento['sector']; ?></td>
 			<td><?php echo $movimiento['interno']; ?></td>
 			<td><?php echo $movimiento['fecha_carga']; ?></td>
 			<td><?php echo $movimiento['usuario_id']; ?></td>
-		<td class="actions">
-			<?php echo $this->Html->link('<span class="glyphicon glyphicon-list-alt" title="Ver"></span>', array('controller' => 'movimientos', 'action' => 'view', $movimiento['id']), array('escape'=>false)); ?>
+
+	<!--	<td class="actions">
+			<?php // echo $this->Html->link('<span class="glyphicon glyphicon-list-alt" title="Ver"></span>', array('controller' => 'movimientos', 'action' => 'view', $movimiento['id']), array('escape'=>false)); ?>
 
 		</td>
-		</tr>
+		</tr> -->
 	<?php endforeach; ?>
 							</tbody>
 						</table><!-- /.table table-striped table-bordered -->

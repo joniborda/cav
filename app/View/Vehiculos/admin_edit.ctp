@@ -1,4 +1,13 @@
+<?php $todos_dias = array('1' => 'L' ,
+			  '2' => 'M' ,
+			  '3' => 'X' ,
+			  '4' => 'J' ,
+			  '5' => 'V' ,
+			  '6' => 'S' ,
+			  '7' => 'D' ,
 
+
+ ); ?>
 <div id="page-container" class="row">
 
 	<div id="page-content" class="col-sm-12">
@@ -8,18 +17,46 @@
 			<?php echo $this->Form->create('Vehiculo', array('inputDefaults' => array('label' => false), 'role' => 'form')); ?>
 				<fieldset>
 					<h2><?php echo __('Editar Vehiculo'); ?>										</h2>
-				<hr />
-		<?php echo $this->Form->label('patente', 'Patente'); ?>
-		<?php echo $this->Form->input('patente', array('div' => false, "class" => 'form-control'));?>
+					<hr />
+		<div class="row">
+			<div class="col-sm-3">
+				<?php echo $this->Form->label('patente', 'Patente'); ?>
+				<br>
+				<?php echo $this->Form->input('patente', array('div' => false, "class" => 'form-control input_corto','disabled'=>'disabled'));?>
+			</div>
+			<div class="col-sm-3">
+				<?php echo $this->Form->label('color', 'Color'); ?>
+				<br>
+				<?php echo $this->Form->input('color', array('div' => false, "class" => 'form-control input_corto'));?>
+			</div>
+			<div class="col-sm-3">
+				<?php echo $this->Form->label('descripcion', 'Descripcion'); ?>
+				<?php echo $this->Form->input('descripcion', array('div' => false, "class" => 'form-control '));?>
+			</div>
+			<div class="col-sm-3">
+				<?php echo $this->Form->label('tipo_autorizacion', 'Tipo Autorizacion'); ?>
+				<?php echo $this->Form->input('tipo_autorizacion', array('type' => 'select', 'div' => false, "class" => 'form-control'));?>
+			</div>
+		</div>
 
-		<?php echo $this->Form->label('color', 'Color'); ?>
-		<?php echo $this->Form->input('color', array('div' => false, "class" => 'form-control'));?>
-
-		<?php echo $this->Form->label('descripcion', 'Descripcion'); ?>
-		<?php echo $this->Form->input('descripcion', array('div' => false, "class" => 'form-control'));?>
-
-		<?php echo $this->Form->label('tipo_autorizacion', 'Tipo Autorizacion'); ?>
-		<?php echo $this->Form->input('tipo_autorizacion', array('div' => false, "class" => 'form-control'));?>
+				<h4>Repetir</h4>
+					<div class="row">
+						<div class="col-sm-3"> 
+							<?php echo $this->Form->label('desde', 'Desde:'); ?>
+							<br>
+							<?php echo $this->Form->input('desde', array('type'=>'text','div' => false, "class" => 'form-control input_corto datepicker', 'value'=>date("d/m/Y")));?>
+						</div>
+						<div class="col-sm-3">
+							<?php echo $this->Form->label('hasta', 'Hasta:'); ?>
+							<br>
+							<?php echo $this->Form->input('hasta', array('type'=>'text','div' => false, "class" => 'form-control input_corto datepicker', 'value'=>''));?>
+						</div>
+						<div class="col-sm-3"
+							<?php echo $this->Form->label('dia', 'Los Días:'); ?>
+							<br>
+							<?php echo $this->Form->input('dia', array('type' => 'select','multiple' => 'checkbox','options' => $todos_dias,'div' => false, "class" => 'form-control', 'value' => $dias));?>
+						</div>
+				</div>
 
 			
 			<div class="related">
@@ -57,8 +94,8 @@
 			<td><?php echo h($movimiento['usuario_id']); ?></td>
 		<td class="actions">
 			<?php echo $this->Html->link('<span class="glyphicon glyphicon-list-alt" title="Ver"></span>', array('controller' => 'movimientos', 'action' => 'view', $movimiento['id']), array('escape'=>false)); ?>
-			<?php echo $this->Html->link('<span class="glyphicon glyphicon-wrench" title="Editar"></span>', array('controller' => 'movimientos', 'action' => 'edit', $movimiento['id']), array('escape'=>false)); ?>
-			<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-trash" title="Borrar"></span>', array('controller' => 'movimientos', 'action' => 'delete', $movimiento['id']), array('escape'=>false), __('¿Estas seguro que desea borrar # %s?', $movimiento['id'])); ?>
+			<?php // echo $this->Html->link('<span class="glyphicon glyphicon-wrench" title="Editar"></span>', array('controller' => 'movimientos', 'action' => 'edit', $movimiento['id']), array('escape'=>false)); ?>
+			<?php // echo $this->Form->postLink('<span class="glyphicon glyphicon-trash" title="Borrar"></span>', array('controller' => 'movimientos', 'action' => 'delete', $movimiento['id']), array('escape'=>false), __('¿Estas seguro que desea borrar # %s?', $movimiento['id'])); ?>
 		</td>
 		</tr>
 	<?php endforeach; ?>
@@ -70,7 +107,7 @@
 
 				
 				<div class="actions">
-					<?php echo $this->Html->link('<i class="icon-plus icon-white"></i> '.__('Nuevo Movimiento'), array('controller' => 'movimientos', 'action' => 'add',h($this->data['Vehiculo']['id'])),array('class' => 'btn btn-primary', 'escape' => false)); ?>				</div><!-- /.actions -->
+					<?php // echo $this->Html->link('<i class="icon-plus icon-white"></i> '.__('Nuevo Movimiento'), array('controller' => 'movimientos', 'action' => 'add',h($this->data['Vehiculo']['id'])),array('class' => 'btn btn-primary', 'escape' => false)); ?>				</div><!-- /.actions -->
 				
 			</div><!-- /.related -->
 

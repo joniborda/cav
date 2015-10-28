@@ -140,7 +140,6 @@
 				<table cellpadding="0" cellspacing="0" class="table table-striped table-bordered">
 					<thead>
 						<tr>
-																						<th><?php echo $this->Paginator->sort('id'); ?></th>
 																						<th><?php echo $this->Paginator->sort('patente'); ?></th>
 																						<th><?php echo $this->Paginator->sort('color'); ?></th>
 																						<th><?php echo $this->Paginator->sort('descripcion'); ?></th>
@@ -152,14 +151,14 @@
 						<?php
 						foreach ($vehiculos as $vehiculo): ?>
 	<tr>
-		<td><?php echo h($vehiculo['Vehiculo']['id']); ?>&nbsp;</td>
+	
 		<td><?php echo h($vehiculo['Vehiculo']['patente']); ?>&nbsp;</td>
 		<td><?php echo h($vehiculo['Vehiculo']['color']); ?>&nbsp;</td>
 		<td><?php echo h($vehiculo['Vehiculo']['descripcion']); ?>&nbsp;</td>
 		<td><?php echo h($vehiculo['Vehiculo']['tipo_autorizacion']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link('<span class="glyphicon glyphicon-list-alt" title="Ver"></span>', array('action' => 'view', $vehiculo['Vehiculo']['id']), array('escape'=>false)); ?>
-			<?php echo $this->Html->link('<span class="glyphicon glyphicon-wrench" title="Editar"></span>', array('action' => 'edit', $vehiculo['Vehiculo']['id']), array('escape'=>false)); ?>
+			<?php   echo $this->Html->link('<span class="glyphicon glyphicon-wrench" title="Editar"></span>', array('action' => 'edit', $vehiculo['Vehiculo']['id']), array('escape'=>false)); ?>
 			<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-trash" title="Borrar"></span>', array('action' => 'delete', $vehiculo['Vehiculo']['id']), array('escape'=>false), __('¿Estas seguro que desea borrar # %s?', $vehiculo['Vehiculo']['id'])); ?>
 		</td>
 	</tr>
