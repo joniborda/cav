@@ -95,15 +95,15 @@
 					<span class="badge"><?php echo $count_inside; ?></span>
 				</a>
 			</li>
-			<li class="dropdown margin_button <?php echo ($current_controller == 'v_vehiculos_excedidos') ? 'active': ''?>">
-				<a href="<?php echo Router::url(array('controller' => 'v_vehiculos_excedidos', 'action' => 'index'))?>" class="dropdown-toggle">
+			<!--<li  class="dropdown margin_button <?php //echo ($current_controller == 'v_vehiculos_excedidos') ? 'active': ''?>">
+				<a href="<?php //echo Router::url(array('controller' => 'v_vehiculos_excedidos', 'action' => 'index'))?>" class="dropdown-toggle">
 					VEHÍCULOS EXCEDIDOS
-					<span class="badge"><?php echo $count_inside2; ?></span>
+					<span class="badge"><?php// echo $count_inside2; ?></span>
 				</a>
 			</li>
-			<li class="dropdown margin_button <?php echo ($current_controller == 'movimientos' && $current_action == 'admin_add') ? 'active': ''?>">
-				<a href="<?php echo Router::url(array('controller' => 'movimientos', 'action' => 'add'))?>" class="dropdown-toggle">MULTAS</a>
-			</li>
+			<li class="dropdown margin_button <?php //echo ($current_controller == 'movimientos' && $current_action == 'admin_') ? 'active': ''?>">
+				<a href="<?php //echo Router::url(array('controller' => 'movimientos', 'action' => 'add'))?>" class="dropdown-toggle">MULTAS</a>
+			</li> -->
 
 		</ul>
 		<!-- /.nav navbar-nav -->

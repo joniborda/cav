@@ -59,6 +59,16 @@ class Vehiculo extends AppModel {
 		)
 	);
 
+		public $belongsTo = array(
+		'Persona' => array(
+			'className' => 'Persona',
+			'foreignKey' => 'persona_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		)
+	);
+
 
 
 public $actsAs = array('Search.Searchable');

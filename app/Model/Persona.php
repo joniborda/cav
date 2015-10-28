@@ -24,8 +24,8 @@ class Persona extends AppModel {
  * @var array
  */
 	public $hasMany = array(
-		'Movimiento' => array(
-			'className' => 'Movimiento',
+		'Vehiculo' => array(
+			'className' => 'Vehiculo',
 			'foreignKey' => 'persona_id',
 			'dependent' => false,
 			'conditions' => '',
