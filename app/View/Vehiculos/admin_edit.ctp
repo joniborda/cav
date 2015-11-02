@@ -19,6 +19,7 @@
 					<h2><?php echo __('Editar Vehiculo'); ?>										</h2>
 					<hr />
 		<div class="row">
+		<h4>Datos Vehiculo</h4>
 			<div class="col-sm-3">
 				<?php echo $this->Form->label('patente', 'Patente'); ?>
 				<br>
@@ -38,6 +39,26 @@
 				<?php echo $this->Form->input('tipo_autorizacion', array('type' => 'select', 'div' => false, "class" => 'form-control'));?>
 			</div>
 		</div>
+
+		<div class="row">
+		<h4>Datos Persona</h4>
+			<div class="col-sm-3">
+				<?php echo $this->Form->label('nombre', 'Nombre'); ?>
+				<br>
+				<?php echo $this->Form->input('nombre', array('type'=>'text','div' => false, "class" => 'form-control input_mediano'));?>
+			</div>
+			<div class="col-sm-3">
+				<?php echo $this->Form->label('apellido', 'Apellido'); ?>
+				<br>
+				<?php echo $this->Form->input('apellido', array('type'=>'text','div' => false, "class" => 'form-control input_mediano'));?>
+			</div>
+			<div class="col-sm-3">
+				<?php echo $this->Form->label('dni', 'Dni'); ?>
+				<br>
+				<?php echo $this->Form->input('dni', array('type'=>'text','div' => false, "class" => 'form-control input_mediano'));?>
+			</div>
+		</div>
+
 
 				<h4>Repetir</h4>
 					<div class="row">
@@ -60,50 +81,8 @@
 
 			
 			<div class="related">
-				<h3><?php echo __('Movimientos'); ?></h3>
 				
-				<?php if (!empty($this->data['Movimiento'])): ?>
-					
-					<div class="table-responsive">
-						<table class="table table-striped table-bordered">
-							<thead>
-								<tr>
-											<th><?php echo __('Id'); ?></th>
-		<th><?php echo __('Vehiculo Id'); ?></th>
-		<th><?php echo __('Persona Id'); ?></th>
-		<th><?php echo __('Tipo Movimiento'); ?></th>
-		<th><?php echo __('Sector'); ?></th>
-		<th><?php echo __('Interno'); ?></th>
-		<th><?php echo __('Fecha Carga'); ?></th>
-		<th><?php echo __('Usuario Id'); ?></th>
-									<th class="actions"><?php echo __('Actions'); ?></th>
-								</tr>
-							</thead>
-							<tbody>
-									<?php
-										$i = 0;
-										foreach ($this->data['Movimiento'] as $movimiento): ?>
-		<tr>
-			<td><?php echo h($movimiento['id']); ?></td>
-			<td><?php echo h($movimiento['vehiculo_id']); ?></td>
-			<td><?php echo h($movimiento['persona_id']); ?></td>
-			<td><?php echo h($movimiento['tipo_movimiento']); ?></td>
-			<td><?php echo h($movimiento['sector']); ?></td>
-			<td><?php echo h($movimiento['interno']); ?></td>
-			<td><?php echo h($movimiento['fecha_carga']); ?></td>
-			<td><?php echo h($movimiento['usuario_id']); ?></td>
-		<td class="actions">
-			<?php echo $this->Html->link('<span class="glyphicon glyphicon-list-alt" title="Ver"></span>', array('controller' => 'movimientos', 'action' => 'view', $movimiento['id']), array('escape'=>false)); ?>
-			<?php // echo $this->Html->link('<span class="glyphicon glyphicon-wrench" title="Editar"></span>', array('controller' => 'movimientos', 'action' => 'edit', $movimiento['id']), array('escape'=>false)); ?>
-			<?php // echo $this->Form->postLink('<span class="glyphicon glyphicon-trash" title="Borrar"></span>', array('controller' => 'movimientos', 'action' => 'delete', $movimiento['id']), array('escape'=>false), __('¿Estas seguro que desea borrar # %s?', $movimiento['id'])); ?>
-		</td>
-		</tr>
-	<?php endforeach; ?>
-							</tbody>
-						</table><!-- /.table table-striped table-bordered -->
-					</div><!-- /.table-responsive -->
-					
-				<?php endif; ?>
+			
 
 				
 				<div class="actions">

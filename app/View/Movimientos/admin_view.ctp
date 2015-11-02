@@ -7,9 +7,12 @@
 				<table class="table table-striped table-bordered">
 					<tbody>
 						<tr>
-							<td class="col-sm-2"><strong>Persona</strong></td>
+							<td class="col-sm-2"><strong><?php echo __('Persona'); ?></strong></td>
 							<td class="col-sm-4">
-							<?php echo $this->Html->link($movimiento['Persona']['apellido'] . ', ' . $movimiento['Persona']['nombre'], array('controller' => 'personas', 'action' => 'view', $movimiento['Persona']['id']), array('class' => '')); ?>
+								<?php echo h($movimiento['Vehiculo']['nombre']); ?>
+								<?php echo h($movimiento['Vehiculo']['apellido']); ?>
+								<?php echo h($movimiento['Vehiculo']['dni']); ?>
+								&nbsp;
 							</td>
 						</tr>
 						<tr>

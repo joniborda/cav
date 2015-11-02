@@ -173,7 +173,7 @@
 							<th><?php echo $this->Paginator->sort('vehiculo_id'); ?></th>
 							<th><?php echo $this->Paginator->sort('patente'); ?></th>
 							<th><?php echo $this->Paginator->sort('tipo_autorizacion', 'Tipo de autorización'); ?></th>
-							<th><?php echo $this->Paginator->sort('persona_id'); ?></th>
+							
 							<th><?php echo $this->Paginator->sort('sector'); ?></th>
 							<th><?php echo $this->Paginator->sort('interno'); ?></th>
 							<th class="actions"><?php echo __('Opciones'); ?></th>
@@ -189,11 +189,6 @@
 					</td>
 					<td><?php echo h($vVehiculosAdentro['VVehiculosAdentro']['patente']); ?>&nbsp;</td>
 					<td><?php echo h($vVehiculosAdentro['VVehiculosAdentro']['tipo_autorizacion']); ?>&nbsp;</td>
-					<td>
-						<?php if ($vVehiculosAdentro['Persona']):?>
-						<?php echo $this->Html->link($vVehiculosAdentro['Persona']['apellido'] . ', ' . $vVehiculosAdentro['Persona']['nombre'], array('controller' => 'personas', 'action' => 'view', $vVehiculosAdentro['Persona']['id'])); ?>
-						<?php endif;?>
-					</td>
 					<td><?php echo h($vVehiculosAdentro['VVehiculosAdentro']['sector']); ?>&nbsp;</td>
 					<td><?php echo $vVehiculosAdentro['VVehiculosAdentro']['interno']; ?>&nbsp;</td>
 					<td class="actions">

@@ -57,7 +57,7 @@ public function admin_add() {
 		
 			$vehiculo_autorizado = $this->Movimiento->Vehiculo->find('first', array(
 				'conditions' => array(
-					'id' => $this->data['Movimiento']['vehiculo_id'],
+					'Vehiculo.id' => $this->data['Movimiento']['vehiculo_id'],
 					'desde <= ?' => $hoy,
 					array(
 						'OR' => array(

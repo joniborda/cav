@@ -169,10 +169,13 @@
 					<thead>
 						<tr>
 																						<th><?php echo $this->Paginator->sort('Patente'); ?></th>
-																						<th><?php echo $this->Paginator->sort('persona_id'); ?></th>
+																						<th><?php echo $this->Paginator->sort('descripcion'); ?></th>
+																						<th><?php echo $this->Paginator->sort('color'); ?></th>
+																						<th><?php echo $this->Paginator->sort('nombre'); ?></th>
+																						<th><?php echo $this->Paginator->sort('apellido'); ?></th>
+																						<th><?php echo $this->Paginator->sort('dni'); ?></th>
 																						<th><?php echo $this->Paginator->sort('tipo_movimiento'); ?></th>
-																						<th><?php echo $this->Paginator->sort('sector'); ?></th>
-																						<th><?php echo $this->Paginator->sort('interno'); ?></th>
+																						
 																													<th class="actions"><?php echo __('Opciones'); ?></th>
 						</tr>
 					</thead>
@@ -183,12 +186,23 @@
 		<td><?php if ($movimiento['Vehiculo']):?>
 			<?php echo $this->Html->link($movimiento['Vehiculo']['patente'], array('controller' => 'vehiculos', 'action' => 'view', $movimiento['Vehiculo']['id'])); ?>
 		<?php endif;?></td>
-		<td><?php if ($movimiento['Persona']):?>
-			<?php echo $this->Html->link($movimiento['Persona']['nombre'] . ', ' . $movimiento['Persona']['apellido'], array('controller' => 'personas', 'action' => 'view', $movimiento['Persona']['id'])); ?>
+		<td><?php if ($movimiento['Vehiculo']):?>
+			<?php echo $this->Html->link($movimiento['Vehiculo']['descripcion'], array('controller' => 'vehiculos', 'action' => 'view', $movimiento['Vehiculo']['id'])); ?>
+		<?php endif;?></td>
+			<td><?php if ($movimiento['Vehiculo']):?>
+			<?php echo $this->Html->link($movimiento['Vehiculo']['color'], array('controller' => 'vehiculos', 'action' => 'view', $movimiento['Vehiculo']['id'])); ?>
+		<?php endif;?></td>
+		<td><?php if ($movimiento['Vehiculo']):?>
+			<?php echo $this->Html->link($movimiento['Vehiculo']['nombre'], array('controller' => 'vehiculos', 'action' => 'view', $movimiento['Vehiculo']['id'])); ?>
+		<?php endif;?></td>
+		<td><?php if ($movimiento['Vehiculo']):?>
+			<?php echo $this->Html->link($movimiento['Vehiculo']['apellido'], array('controller' => 'vehiculos', 'action' => 'view', $movimiento['Vehiculo']['id'])); ?>
+		<?php endif;?></td>
+		<td><?php if ($movimiento['Vehiculo']):?>
+			<?php echo $this->Html->link($movimiento['Vehiculo']['dni'], array('controller' => 'vehiculos', 'action' => 'view', $movimiento['Vehiculo']['id'])); ?>
 		<?php endif;?></td>
 		<td><?php echo h($movimiento['Movimiento']['tipo_movimiento']); ?>&nbsp;</td>
-		<td><?php echo h($movimiento['Movimiento']['sector']); ?>&nbsp;</td>
-		<td><?php echo $movimiento['Movimiento']['interno']; ?>&nbsp;</td>
+		
 		<td class="actions">
 			<?php echo $this->Html->link('<span class="glyphicon glyphicon-list-alt" title="Ver"></span>', array('action' => 'view', $movimiento['Movimiento']['id']), array('escape'=>false)); ?>
 	

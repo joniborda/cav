@@ -28,6 +28,18 @@ $dias = array('1' => 'L' ,
 
 				<?php echo $this->Form->label('descripcion', 'Descripción'); ?>
 				<?php echo $this->Form->input('descripcion', array('div' => false, "class" => 'form-control'));?>
+				<h4>Datos Persona</h4>
+				<?php echo $this->Form->label('nombre', 'Nombre'); ?>
+				<br>
+				<?php echo $this->Form->input('nombre', array('type'=>'text','div' => false, "class" => 'form-control'));?>
+				
+				<?php echo $this->Form->label('apellido', 'Apellido'); ?>
+				<br>
+				<?php echo $this->Form->input('apellido', array('type'=>'text','div' => false, "class" => 'form-control'));?>
+				
+				<?php echo $this->Form->label('dni', 'DNI'); ?>
+				<br>
+				<?php echo $this->Form->input('dni', array('type'=>'text','div' => false, "class" => 'form-control'));?>
 
 				<?php echo $this->Form->label('tipo_autorizacion', 'Tipo Autorizacion'); ?>
 				<?php echo $this->Form->input('tipo_autorizacion', array('div' => false, "class" => 'form-control'));?>
