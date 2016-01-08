@@ -65,12 +65,12 @@
 						<div class="col-sm-3"> 
 							<?php echo $this->Form->label('desde', 'Desde:'); ?>
 							<br>
-							<?php echo $this->Form->input('desde', array('type'=>'text','div' => false, "class" => 'form-control input_corto datepicker', 'value'=>date("d/m/Y")));?>
+							<?php echo $this->Form->input('desde', array('type'=>'text','div' => false, "class" => 'form-control input_corto datepicker'));?>
 						</div>
 						<div class="col-sm-3">
 							<?php echo $this->Form->label('hasta', 'Hasta:'); ?>
 							<br>
-							<?php echo $this->Form->input('hasta', array('type'=>'text','div' => false, "class" => 'form-control input_corto datepicker', 'value'=>''));?>
+							<?php echo $this->Form->input('hasta', array('type'=>'text','div' => false, "class" => 'form-control input_corto datepicker'));?>
 						</div>
 						<div class="col-sm-3"
 							<?php echo $this->Form->label('dia', 'Los Días:'); ?>

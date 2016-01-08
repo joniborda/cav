@@ -134,7 +134,7 @@ public function admin_add() {
 
 		}
 		$this->cargar_modelos();
-					}
+	}
 
 /**
  * admin_delete method
