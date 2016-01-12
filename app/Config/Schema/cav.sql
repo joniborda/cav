@@ -1588,12 +1588,12 @@ ALTER TABLE dias_vehiculos
 
 
 
-ALTER TABLE vehiculos ADD COLUMN desde date;
-ALTER TABLE vehiculos ADD COLUMN hasta date;
-ALTER TABLE vehiculos ADD COLUMN nombre character varying;
-ALTER TABLE vehiculos ADD COLUMN apellido character varying;
-ALTER TABLE vehiculos ADD COLUMN dni character varying;
+ALTER TABLE public.vehiculos ADD COLUMN desde date;
+ALTER TABLE public.vehiculos ADD COLUMN hasta date;
+ALTER TABLE public.vehiculos ADD COLUMN nombre character varying;
+ALTER TABLE public.vehiculos ADD COLUMN apellido character varying;
+ALTER TABLE public.vehiculos ADD COLUMN dni character varying;
 
 
-ALTER TABLE vehiculos ADD COLUMN persona_id integer;
+ALTER TABLE public.vehiculos ADD COLUMN persona_id integer;
 
