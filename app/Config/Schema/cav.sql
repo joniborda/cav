@@ -1597,3 +1597,4 @@ ALTER TABLE vehiculos ADD COLUMN dni character varying;
 
 ALTER TABLE vehiculos ADD COLUMN persona_id integer;
 
+ALTER TABLE personas ADD COLUMN celular character varying (30);

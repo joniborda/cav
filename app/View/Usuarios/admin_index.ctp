@@ -231,17 +231,12 @@
 				<table cellpadding="0" cellspacing="0" class="table table-striped table-bordered">
 					<thead>
 						<tr>
-															
-															<th><?php echo $this->Paginator->sort('id'); ?></th>
-															<th><?php echo $this->Paginator->sort('nombre_completo'); ?></th>
-															<th><?php echo $this->Paginator->sort('password'); ?></th>
-															<th><?php echo $this->Paginator->sort('usuario_login'); ?></th>
-															<th><?php echo $this->Paginator->sort('borrado'); ?></th>
-															<th><?php echo $this->Paginator->sort('id_anterior'); ?></th>
-															<th><?php echo $this->Paginator->sort('modified'); ?></th>
-															<th><?php echo $this->Paginator->sort('created'); ?></th>
-															<!-- <th><?php echo $this->Paginator->sort('apellido'); ?></th>  -->
-															<th class="actions"><?php echo __('Opciones'); ?></th>
+							<th><?php echo $this->Paginator->sort('id'); ?></th>
+							<th><?php echo $this->Paginator->sort('password'); ?></th>
+							<th><?php echo $this->Paginator->sort('usuario_login'); ?></th>
+							<th><?php echo $this->Paginator->sort('modified'); ?></th>
+							<th><?php echo $this->Paginator->sort('created'); ?></th>
+							<th class="actions"><?php echo __('Opciones'); ?></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -250,15 +245,10 @@
 	<tr>
 		
 		<td><?php echo h($usuario['Usuario']['id']); ?>&nbsp;</td>
-		<td><?php echo h($usuario['Usuario']['nombre_completo']); ?>&nbsp;</td>
 		<td><?php echo h($usuario['Usuario']['password']); ?>&nbsp;</td>
 		<td><?php echo h($usuario['Usuario']['usuario_login']); ?>&nbsp;</td>
-		<td><?php echo h($usuario['Usuario']['borrado']); ?>&nbsp;</td>
-		<td><?php echo h($usuario['Usuario']['id_anterior']); ?>&nbsp;</td>
 		<td><?php echo h($usuario['Usuario']['modified']); ?>&nbsp;</td>
 		<td><?php echo h($usuario['Usuario']['created']); ?>&nbsp;</td>
-	<!--	<td><?php echo h($usuario['Usuario']['apellido']); ?>&nbsp;</td> -->
-		
 		<td class="actions">
 			<?php echo $this->Html->link('<span class="glyphicon glyphicon-list-alt" title="Ver"></span>', array('action' => 'view', $usuario['Usuario']['id']), array('escape'=>false)); ?>
 			<?php echo $this->Html->link('<span class="glyphicon glyphicon-wrench" title="Ver"></span>', array('action' => 'edit', $usuario['Usuario']['id']), array('escape'=>false)); ?>
