@@ -260,5 +260,7 @@ public function admin_add() {
 				'PROVEEDOR' => 'PROVEEDOR'
 			)
 		);
+
+		$this->set('tipoVehiculos', $this->Vehiculo->TipoVehiculo->find('list'));
 	}
 }

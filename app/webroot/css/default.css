@@ -777,3 +777,13 @@ input[type="radio"], input[type="checkbox"] {
 	padding: auto;
 	color: black;
 }
+.input_error {
+    border-color: #FF0500;
+    -webkit-box-shadow: inset 0 1px 1px rgba(239, 3, 3, 0.175);
+    box-shadow: inset 1px 1px 9px rgba(239, 3, 3, 0.175);
+    border-width: 1px;
+}
+.popover {
+    width: 100%;
+    max-width: none;
+}

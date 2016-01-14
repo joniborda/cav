@@ -59,10 +59,17 @@ class Vehiculo extends AppModel {
 		)
 	);
 
-		public $belongsTo = array(
+	public $belongsTo = array(
 		'Persona' => array(
 			'className' => 'Persona',
 			'foreignKey' => 'persona_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
+		'TipoVehiculo' => array(
+			'className' => 'TipoVehiculo',
+			'foreignKey' => 'tipo_vehiculo_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''

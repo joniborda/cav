@@ -18,27 +18,26 @@ $dias = array('1' => 'L' ,
 			<fieldset>
 				<h2><?php echo __('Cargar Vehículo'); ?></h2>
 				<hr />
+
+				<?php echo $this->Form->label('tipo_vehiculo_id', 'Tipo de Vehículo'); ?>
+				<?php echo $this->Form->input('tipo_vehiculo_id', array('div' => false, "class" => 'form-control'));?>
+
 				<?php echo $this->Form->label('patente', 'Patente'); ?>
-				<br>
-				<?php echo $this->Form->input('patente', array('div' => false, "class" => 'form-control'));?>
+				<?php echo $this->Form->input('patente', array('div' => false, "class" => 'form-control', 'data-toggle'=> "popover", 'data-trigger' => "focus" ));?>
 
 				<?php echo $this->Form->label('color', 'Color'); ?>
-				<br>
 				<?php echo $this->Form->input('color', array('div' => false, "class" => 'form-control'));?>
 
 				<?php echo $this->Form->label('descripcion', 'Descripción'); ?>
 				<?php echo $this->Form->input('descripcion', array('div' => false, "class" => 'form-control'));?>
 				<h4>Datos Persona</h4>
 				<?php echo $this->Form->label('nombre', 'Nombre'); ?>
-				<br>
 				<?php echo $this->Form->input('nombre', array('type'=>'text','div' => false, "class" => 'form-control'));?>
 				
 				<?php echo $this->Form->label('apellido', 'Apellido'); ?>
-				<br>
 				<?php echo $this->Form->input('apellido', array('type'=>'text','div' => false, "class" => 'form-control'));?>
 				
 				<?php echo $this->Form->label('dni', 'DNI'); ?>
-				<br>
 				<?php echo $this->Form->input('dni', array('type'=>'text','div' => false, "class" => 'form-control'));?>
 
 				<?php echo $this->Form->label('tipo_autorizacion', 'Tipo Autorizacion'); ?>
@@ -46,18 +45,15 @@ $dias = array('1' => 'L' ,
 
 				<h4>Repetir</h4>
 					<div class="row">
-						<div> 
+						<div>
 							<?php echo $this->Form->label('desde', 'Desde:'); ?>
-							<br>
 							<?php echo $this->Form->input('desde', array('type'=>'text','div' => false, "class" => 'form-control input_corto datepicker', 'value'=>date("d/m/Y")));?>
 						</div>
 						<div>
 							<?php echo $this->Form->label('hasta', 'Hasta:'); ?>
-							<br>
 							<?php echo $this->Form->input('hasta', array('type'=>'text','div' => false, "class" => 'form-control input_corto datepicker', 'value'=>''));?>
 						</div>
 					<?php echo $this->Form->label('dia', 'Los Días:'); ?>
-					<br>
 					<?php echo $this->Form->input('dia', array('type' => 'select','multiple' => 'checkbox','options' => $dias,'div' => false, "class" => 'form-control'));?>
 				</div>
 
