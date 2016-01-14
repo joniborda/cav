@@ -260,7 +260,16 @@ public function admin_add() {
 				'PROVEEDOR' => 'PROVEEDOR'
 			)
 		);
-
+		$this->set('dias', array(
+			'1' => 'Lun' ,
+			'2' => 'Mar' ,
+			'3' => 'Mie' ,
+			'4' => 'Jue' ,
+			'5' => 'Vie' ,
+			'6' => 'Sab' ,
+			'7' => 'Dom' ,
+		)); 
+		
 		$this->set('tipoVehiculos', $this->Vehiculo->TipoVehiculo->find('list'));
 	}
 }

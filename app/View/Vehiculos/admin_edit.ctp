@@ -1,13 +1,3 @@
-<?php $todos_dias = array('1' => 'L' ,
-			  '2' => 'M' ,
-			  '3' => 'X' ,
-			  '4' => 'J' ,
-			  '5' => 'V' ,
-			  '6' => 'S' ,
-			  '7' => 'D' ,
-
-
- ); ?>
 <div id="page-container" class="row">
 <div class="col-sm-4"></div>
 	<div id="page-content"  class="col-sm-3" align="center">
@@ -47,6 +37,7 @@
 					<?php echo $this->Form->input('dni', array('type'=>'text','div' => false, "class" => 'form-control'));?>
 
 					<h4>Repetir</h4>
+				<div class="row">
 					<div>
 						<?php echo $this->Form->label('desde', 'Desde:'); ?>
 						<?php echo $this->Form->input('desde', array('type'=>'text','div' => false, "class" => 'form-control input_corto datepicker'));?>
@@ -55,8 +46,23 @@
 						<?php echo $this->Form->label('hasta', 'Hasta:'); ?>
 						<?php echo $this->Form->input('hasta', array('type'=>'text','div' => false, "class" => 'form-control input_corto datepicker'));?>
 					</div>
-					<?php echo $this->Form->label('dia', 'Los Días:'); ?>
-					<?php echo $this->Form->input('dia', array('type' => 'select','multiple' => 'checkbox','options' => $todos_dias,'div' => false, "class" => 'form-control', 'value' => $dias));?>
+					<div>
+						<?php echo $this->Form->label('dia', 'Los Días:'); ?>
+					</div>
+					<div>
+					<?php echo $this->Form->input('dia', array('type' => 'select','multiple' => 'checkbox','div' => false, "class" => 'form-control'));?>
+					</div>
+					<div>
+						<input type="radio" name="dias_especiales" id="DiasHabiles" value="1">
+						<label for="DiasHabiles">Días Habiles</label>
+
+						<input type="radio" name="dias_especiales" id="Finde" value="2">
+						<label for="Finde">Fin de Semana</label>
+
+						<input type="radio" name="dias_especiales" id="Todos" value="3">
+						<label for="Todos">Todos</label>
+					</div>
+				</div>
 
 			<div class="related">
 				<div class="actions">
@@ -75,3 +81,42 @@
 
 </div><!-- /#page-container .row-fluid -->
 
+<script type="text/javascript">
+	
+$(document).on('change', 'input[name="dias_especiales"]', function(event) {
+	var value = $(this).val();
+
+	switch(value) {
+		case "1":
+			$('#VehiculoDia1').prop('checked',true);
+			$('#VehiculoDia2').prop('checked',true);
+			$('#VehiculoDia3').prop('checked',true);
+			$('#VehiculoDia4').prop('checked',true);
+			$('#VehiculoDia5').prop('checked',true);
+
+			$('#VehiculoDia6').removeAttr('checked');
+			$('#VehiculoDia7').removeAttr('checked');
+			break;
+		case "2":
+			$('#VehiculoDia1').removeAttr('checked');
+			$('#VehiculoDia2').removeAttr('checked');
+			$('#VehiculoDia3').removeAttr('checked');
+			$('#VehiculoDia4').removeAttr('checked');
+			$('#VehiculoDia5').removeAttr('checked');
+
+			$('#VehiculoDia6').prop('checked',true);
+			$('#VehiculoDia7').prop('checked',true);
+			break;
+		case "3":
+			$('#VehiculoDia1').prop('checked',true);
+			$('#VehiculoDia2').prop('checked',true);
+			$('#VehiculoDia3').prop('checked',true);
+			$('#VehiculoDia4').prop('checked',true);
+			$('#VehiculoDia5').prop('checked',true);
+			$('#VehiculoDia6').prop('checked',true);
+			$('#VehiculoDia7').prop('checked',true);
+			break;			
+	}
+});
+
+</script>

@@ -83,3 +83,39 @@ function validarPatente(valor) {
 	}
 
 }
+
+$(document).on('change', 'input[name="dias_especiales"]', function(event) {
+	var value = $(this).val();
+
+	switch(value) {
+		case "1":
+			$('#VehiculoDia1').prop('checked',true);
+			$('#VehiculoDia2').prop('checked',true);
+			$('#VehiculoDia3').prop('checked',true);
+			$('#VehiculoDia4').prop('checked',true);
+			$('#VehiculoDia5').prop('checked',true);
+
+			$('#VehiculoDia6').removeAttr('checked');
+			$('#VehiculoDia7').removeAttr('checked');
+			break;
+		case "2":
+			$('#VehiculoDia1').removeAttr('checked');
+			$('#VehiculoDia2').removeAttr('checked');
+			$('#VehiculoDia3').removeAttr('checked');
+			$('#VehiculoDia4').removeAttr('checked');
+			$('#VehiculoDia5').removeAttr('checked');
+
+			$('#VehiculoDia6').prop('checked',true);
+			$('#VehiculoDia7').prop('checked',true);
+			break;
+		case "3":
+			$('#VehiculoDia1').prop('checked',true);
+			$('#VehiculoDia2').prop('checked',true);
+			$('#VehiculoDia3').prop('checked',true);
+			$('#VehiculoDia4').prop('checked',true);
+			$('#VehiculoDia5').prop('checked',true);
+			$('#VehiculoDia6').prop('checked',true);
+			$('#VehiculoDia7').prop('checked',true);
+			break;			
+	}
+});

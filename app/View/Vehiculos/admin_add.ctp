@@ -1,15 +1,3 @@
-<?php
-$dias = array('1' => 'L' ,
-			  '2' => 'M' ,
-			  '3' => 'X' ,
-			  '4' => 'J' ,
-			  '5' => 'V' ,
-			  '6' => 'S' ,
-			  '7' => 'D' ,
-
-
- ); 
-?>
 <div id="page-container" class="row">
 <div class="col-sm-4"></div>
 	<div id="page-content" class="col-sm-3" align="center">
@@ -44,17 +32,31 @@ $dias = array('1' => 'L' ,
 				<?php echo $this->Form->input('tipo_autorizacion', array('div' => false, "class" => 'form-control'));?>
 
 				<h4>Repetir</h4>
-					<div class="row">
-						<div>
-							<?php echo $this->Form->label('desde', 'Desde:'); ?>
-							<?php echo $this->Form->input('desde', array('type'=>'text','div' => false, "class" => 'form-control input_corto datepicker', 'value'=>date("d/m/Y")));?>
-						</div>
-						<div>
-							<?php echo $this->Form->label('hasta', 'Hasta:'); ?>
-							<?php echo $this->Form->input('hasta', array('type'=>'text','div' => false, "class" => 'form-control input_corto datepicker', 'value'=>''));?>
-						</div>
-					<?php echo $this->Form->label('dia', 'Los Días:'); ?>
-					<?php echo $this->Form->input('dia', array('type' => 'select','multiple' => 'checkbox','options' => $dias,'div' => false, "class" => 'form-control'));?>
+				<div class="row">
+					<div>
+						<?php echo $this->Form->label('desde', 'Desde:'); ?>
+						<?php echo $this->Form->input('desde', array('type'=>'text','div' => false, "class" => 'form-control input_corto datepicker', 'value'=>date("d/m/Y")));?>
+					</div>
+					<div>
+						<?php echo $this->Form->label('hasta', 'Hasta:'); ?>
+						<?php echo $this->Form->input('hasta', array('type'=>'text','div' => false, "class" => 'form-control input_corto datepicker', 'value'=>''));?>
+					</div>
+					<div>
+						<?php echo $this->Form->label('dia', 'Los Días:'); ?>
+					</div>
+					<div>
+					<?php echo $this->Form->input('dia', array('type' => 'select','multiple' => 'checkbox','div' => false, "class" => 'form-control'));?>
+					</div>
+					<div>
+						<input type="radio" name="dias_especiales" id="DiasHabiles" value="1">
+						<label for="DiasHabiles">Días Habiles</label>
+
+						<input type="radio" name="dias_especiales" id="Finde" value="2">
+						<label for="Finde">Fin de Semana</label>
+
+						<input type="radio" name="dias_especiales" id="Todos" value="3">
+						<label for="Todos">Todos</label>
+					</div>
 				</div>
 
 			</fieldset>
