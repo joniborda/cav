@@ -100,12 +100,12 @@ $(function() {
 					// Si llego es porque el vehiculo es nuevo
 					if (tipo_movimiento == 'SALIDA') {
 						span = $('<span>', {
-						'id' : 'error_carga_patente',
-						'text' : 'El vehículo no se encuentra ingresado en el sistema',
-						'class' : 'label label-danger'
-					});
-					
-					$('#VehiculoPatente').after(span);
+							'id' : 'error_carga_patente',
+							'text' : 'El vehículo no se encuentra ingresado en el sistema',
+							'class' : 'label label-danger'
+						});
+						
+						$('#VehiculoPatente').after(span);
 					
 					} else {
 

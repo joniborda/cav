@@ -215,6 +215,9 @@ class VehiculosController extends AppController {
 					$ret['message'] = $tipo_movimiento;
 				}
 			}
+		} else {
+			$ret['response'] = false;
+			$ret['message'] = '';
 		}
 		
 
