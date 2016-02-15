@@ -193,6 +193,18 @@
 					<td><?php echo $vVehiculosAdentro['VVehiculosAdentro']['interno']; ?>&nbsp;</td>
 					<td class="actions">
 						<?php echo $this->Html->link('<span class="glyphicon glyphicon-list-alt" title="Ver"></span>', array('controller' => 'movimientos', 'action' => 'view', $vVehiculosAdentro['Movimiento']['id']), array('escape'=>false)); ?>
+						<?php echo $this->Form->create('Movimiento', array(
+		    				'url' => array('controller' => 'movimientos', 'action' => 'add'),
+							'inputDefaults' => array('label' => false), 
+							'role' => 'form'));?>
+
+							<?php echo $this->Form->input('tipo_movimiento', array('type' => 'hidden', 'value' => 'SALIDA'));?>
+							<?php echo $this->Form->input('vehiculo_id', array('type' => 'hidden', 'value' => $vVehiculosAdentro['Vehiculo']['id']));?>
+							<a href="#" class="submit_salida" title="Salida">
+								<span class="glyphicon glyphicon-download">
+								</span>
+							</a>
+						<?php echo $this->Form->end();?>
 					</td>
 	</tr>
 <?php endforeach; ?>
@@ -221,3 +233,11 @@
 	</div><!-- /#page-content .col-sm-9 -->
 
 </div><!-- /#page-container .row-fluid -->
+<script type="text/javascript">
+	
+	$('.submit_salida').bind('click', function(event) {
+		event.preventDefault();
+
+		$(this).closest('form').submit();
+	});
+</script>

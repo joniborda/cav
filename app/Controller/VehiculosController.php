@@ -41,13 +41,12 @@ class VehiculosController extends AppController {
 		$this->set('vehiculo', $this->Vehiculo->find('first', $options));
 	}
 
-/**
- * admin_add method
- *
- * @return void
- */
- 
-public function admin_add() {
+	/**
+	 * admin_add method
+	 *
+	 * @return void
+	 */
+	public function admin_add() {
 		if ($this->request->is('post')) {
 			$this->Vehiculo->create();
 			$this->request->data['Vehiculo']['usuario_id'] = $this->Auth->user('id');
@@ -57,8 +56,6 @@ public function admin_add() {
 				$this->cargar_modelos();
 				return;
 			}
-
-
 
 			if ($this->Vehiculo->save($this->request->data)) {
 				$vehiculo_id = $this->Vehiculo->getLastInsertID();
