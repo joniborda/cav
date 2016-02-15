@@ -116,46 +116,40 @@
 			}
 	</script>
 	</div>
-<!-- 	<div id="sidebar" class="col-sm-3">
-		
-		<div class="actions">
-		
-			<ul class="list-group">
-				<li class="list-group-item"><?php echo $this->Html->link(__('New Vehiculo'), array('action' => 'add'), array('class' => '')); ?></li>						<li class="list-group-item"><?php echo $this->Html->link(__('List Movimientos'), array('controller' => 'movimientos', 'action' => 'index'), array('class' => '')); ?></li> 
-		<li class="list-group-item"><?php echo $this->Html->link(__('New Movimiento'), array('controller' => 'movimientos', 'action' => 'add'), array('class' => '')); ?></li> 
-			</ul><!-- /.list-group -->
-			
-<!--  		</div><!-- /.actions -->
-		
-<!-- 	</div><!-- /#sidebar .col-sm-3 -->
 				
 	<div id="page-content" class="col-sm-12">
-<!-- 	<div id="page-content" class="col-sm-9"> -->
-
 		<div class="vehiculos index">
-		
-			<h2 style='display:inline;'><?php echo __('Vehiculos'); ?></h2> <a href="<?php echo Router::url(array('controller' => 'vehiculos', 'action' => 'add'));?>" class='btn btn-large btn-primary' style='float:right'>Agregar nuevo</a>
+	
+			<h2 style='display:inline;'>Vehiculos</h2>
+			<a href="<?php echo Router::url(array('controller' => 'vehiculos', 'action' => 'add'));?>" class='btn btn-large btn-primary' style='float:right'>Agregar nuevo</a>
 			<hr />
 			<div class="table-responsive">
 				<table cellpadding="0" cellspacing="0" class="table table-striped table-bordered">
 					<thead>
 						<tr>
-																						<th><?php echo $this->Paginator->sort('patente'); ?></th>
-																						<th><?php echo $this->Paginator->sort('color'); ?></th>
-																						<th><?php echo $this->Paginator->sort('descripcion'); ?></th>
-																						<th><?php echo $this->Paginator->sort('tipo_autorizacion'); ?></th>
-															<th class="actions"><?php echo __('Opciones'); ?></th>
+							<th><?php echo $this->Paginator->sort('patente'); ?></th>
+							<th><?php echo $this->Paginator->sort('color'); ?></th>
+							<th><?php echo $this->Paginator->sort('descripcion'); ?></th>
+							<th><?php echo $this->Paginator->sort('tipo_autorizacion'); ?></th>
+							<th><?php echo $this->Paginator->sort('fecha_carga'); ?></th>
+							<th><?php echo $this->Paginator->sort('usuario_id'); ?></th>
+							<th class="actions"><?php echo __('Opciones'); ?></th>
 						</tr>
 					</thead>
 					<tbody>
 						<?php
 						foreach ($vehiculos as $vehiculo): ?>
 	<tr>
-	
 		<td><?php echo h($vehiculo['Vehiculo']['patente']); ?>&nbsp;</td>
 		<td><?php echo h($vehiculo['Vehiculo']['color']); ?>&nbsp;</td>
 		<td><?php echo h($vehiculo['Vehiculo']['descripcion']); ?>&nbsp;</td>
 		<td><?php echo h($vehiculo['Vehiculo']['tipo_autorizacion']); ?>&nbsp;</td>
+		<td><?php echo h($vehiculo['Vehiculo']['fecha_carga']); ?>&nbsp;</td>
+		<td>
+			<?php if (isset($vehiculo['Usuario']['usuario_login'])): ?>
+				<?php echo h($vehiculo['Usuario']['usuario_login']); ?>
+			<?php endif; ?>
+		</td>
 		<td class="actions">
 			<?php echo $this->Html->link('<span class="glyphicon glyphicon-list-alt" title="Ver"></span>', array('action' => 'view', $vehiculo['Vehiculo']['id']), array('escape'=>false)); ?>
 			<?php   echo $this->Html->link('<span class="glyphicon glyphicon-wrench" title="Editar"></span>', array('action' => 'edit', $vehiculo['Vehiculo']['id']), array('escape'=>false)); ?>

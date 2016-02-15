@@ -1190,3 +1190,11 @@ WITH (
 );
 
 INSERT INTO tipo_vehiculos (descripcion) VALUES ('AUTO'), ('MOTO'), ('PATENTE ESPECIAL');
+
+ALTER TABLE vehiculos ADD COLUMN usuario_id integer;
+ALTER TABLE vehiculos ADD COLUMN fecha_carga timestamp without time zone;
+
+update vehiculos set fecha_carga = now();
+
+ALTER TABLE vehiculos ALTER COLUMN fecha_carga SET NOT NULL;
+ALTER TABLE vehiculos ALTER COLUMN fecha_carga SET DEFAULT now();

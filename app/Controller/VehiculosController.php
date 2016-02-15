@@ -22,7 +22,7 @@ class VehiculosController extends AppController {
  * @return void
  */
 	public function admin_index() {
-		$this->Vehiculo->recursive = 0;
+		$this->Vehiculo->recursive = 1;
 		$this->set('vehiculos', $this->paginate());
 	}
 

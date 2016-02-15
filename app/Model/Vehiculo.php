@@ -73,7 +73,14 @@ class Vehiculo extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
-		)
+		),
+		'Usuario' => array(
+			'className' => 'Usuario',
+			'foreignKey' => 'usuario_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
 	);
 
 
