@@ -123,13 +123,23 @@ class VehiculosController extends AppController {
 
 			$this->request->data = $this->Vehiculo->find('first', $options);
 
-			$dias = array();
-			foreach ($this->request->data['DiaVehiculo'] as $dia_vehiculo) {
-				$dias[] = $dia_vehiculo['dia'];
-			}
-			$this->set('dias', $dias);
+			$dias = $this->Vehiculo->DiaVehiculo->find('all', array(
+				'conditions' => array(
+					'vehiculo_id' => $id
+				)
+			));
 
+				$this->request->data['DiaVehiculo'] = array();
+			if (!isset($this->request->data['DiaVehiculo'])) {
+			}
+			if (is_array($dias)) {
+
+				foreach ($dias as $dia_vehiculo) {
+					$this->request->data['Vehiculo']['dia'][] = $dia_vehiculo['DiaVehiculo']['dia'];
+				}
+			}
 		}
+
 		$this->cargar_modelos();
 	}
 
