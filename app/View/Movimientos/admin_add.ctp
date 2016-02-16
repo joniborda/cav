@@ -1,8 +1,8 @@
 <div id="page-container" class="row">
 	<div id="page-content" class="col-sm-12" align="center">
 		<div class="movimientos form p_form">
-<div class="col-sm-2"></div>
-<div id="tabs" class="col-sm-6">
+<div class="col-lg-2"></div>
+<div id="tabs" class="col-lg-6 col-sm-9">
   <ul>
     <li><a href="#tab-movimiento">TIPO DE MOVIMIENTO</a></li>
     <li><a href="#tab-vehiculo">VEHÍCULO</a></li>

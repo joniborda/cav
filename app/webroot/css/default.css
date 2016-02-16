@@ -473,15 +473,7 @@ a {
 	.ui-widget-content {
 		border: none;
 	}
-	.ui-tabs .ui-tabs-panel {
-		border-bottom: 1px solid #aaa;
-		border-left: 1px solid #aaa;
-		border-right: 1px solid #aaa;
-	}
-	.ui-tabs .ui-tabs-nav {
-		padding: 0;
-		border-radius: 0;
-	}
+	
 	.img_foto {
 		width: 150px;
 		height: 150px;
@@ -800,3 +792,29 @@ input[type="radio"], input[type="checkbox"] {
 .text_left {
 	text-align: left;
 }
+
+#tabs {
+	background: transparent;
+	border-color: transparent;
+}
+
+.ui-tabs .ui-tabs-panel {
+	background: white;
+	border: none;
+}
+
+.ui-tabs .ui-tabs-nav li {
+	border: none;
+}
+
+.ui-tabs .ui-tabs-panel {
+	border-bottom: 1px solid #aaa;
+	border-left: 1px solid #aaa;
+	border-right: 1px solid #aaa;
+}
+.ui-tabs .ui-tabs-nav {
+	padding: 0;
+	border-color: transparent;
+}
+
+rgba(237, 237, 237, 0.39)
