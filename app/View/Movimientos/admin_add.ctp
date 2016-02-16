@@ -6,7 +6,7 @@
   <ul>
     <li><a href="#tab-movimiento">TIPO DE MOVIMIENTO</a></li>
     <li><a href="#tab-vehiculo">VEHÍCULO</a></li>
-
+    <li><a href="#tab-horario">HORARIO</a></li>
   </ul>
   <div id="tab-movimiento">
   	<div class="row">
@@ -28,7 +28,19 @@
 		</div>
     <?php echo $this->Form->end(); ?>
   </div>
- 
+  
+  <div id="tab-horario">
+  	<?php echo $this->Form->create('Horario', array('inputDefaults' => array('label' => false), 'role' => 'form')); ?>
+    	<?php echo $this->Form->label('horario', '¿Cuántas horas se va a quedar?'); ?>
+		<?php echo $this->Form->input('horario', array(
+				'type' => 'select', 
+				'div' => false, 
+				'class' => 'form-control input_mediano',
+				'options' => $horarios));?>
+		<div class="row">
+			<a class="btn btn-danger col-md-6" id="horario_atras" href="#">ATRÁS</a>
+			<button class="btn btn-success col-md-6">SIGUIENTE</button>
+		</div>
     <?php echo $this->Form->end(); ?>
   </div>
 </div>
@@ -54,8 +66,7 @@
 	<?php echo $this->Form->input('persona_id', array('type' => 'hidden'));?>
 	<?php echo $this->Form->input('sector', array('type' => 'hidden'));?>
 	<?php echo $this->Form->input('interno', array('type' => 'hidden'));?>
-	<?php echo $this->Form->input('horas_predio', array('type' => 'hidden'));?>
-	<?php echo $this->Form->input('minutos_predio', array('type' => 'hidden'));?>
+	<?php echo $this->Form->input('horario', array('type' => 'hidden'));?>
 <?php echo $this->Form->end(); ?>
 		</div><!-- /.form -->
 			

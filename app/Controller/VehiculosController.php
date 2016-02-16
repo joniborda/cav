@@ -269,7 +269,16 @@ class VehiculosController extends AppController {
 			'6' => 'Sab' ,
 			'7' => 'Dom' ,
 		)); 
-		
+
+		$horarios = array(
+			'30' => '30min'
+		);
+
+		for ($i=1; $i <= 24; $i++) { 
+			$horarios[$i] = $i . ' hs';
+		}
+
+		$this->set('horarios', $horarios);
 		$this->set('tipoVehiculos', $this->Vehiculo->TipoVehiculo->find('list'));
 	}
 }

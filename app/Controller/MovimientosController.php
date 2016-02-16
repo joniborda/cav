@@ -51,45 +51,60 @@ class MovimientosController extends AppController {
 			$this->Movimiento->create();
 
 			$this->request->data['Movimiento']['usuario_id'] = $this->Auth->user('id');
-			$hoy=date('Y-m-d');
+			$this->request->data['Movimiento']['tipo_movimiento'] = strtoupper($this->request->data['Movimiento']['tipo_movimiento']);
 
-			$vehiculo_autorizado = $this->Movimiento->Vehiculo->find('first', array(
-				'conditions' => array(
-					'Vehiculo.id' => $this->data['Movimiento']['vehiculo_id'],
-					'desde <= ?' => $hoy,
-					array(
-						'OR' => array(
-							'hasta >= ' => $hoy,
-							'hasta is null'
+			$hoy = date('Y-m-d');
+
+			if ($this->request->data['Movimiento']['tipo_movimiento'] === 'ENTRADA') {
+
+				$vehiculo_autorizado = $this->Movimiento->Vehiculo->find('first', array(
+					'conditions' => array(
+						'Vehiculo.id' => $this->data['Movimiento']['vehiculo_id'],
+						'desde <= ?' => $hoy,
+						array(
+							'OR' => array(
+								'hasta >= ' => $hoy,
+								'hasta is null'
+							)
 						)
 					)
+				));
 
-
-				)
-			));
-
-			$vehiculo_ok = false;
-			if ($vehiculo_autorizado != null) {
-				foreach ($vehiculo_autorizado['DiaVehiculo'] as $dato) {
-					if ($dato['dia'] == date('N')) {
-						$vehiculo_ok = true;
-						break;
+				$vehiculo_dia_autorizado = false;
+				if ($vehiculo_autorizado != null) {
+					foreach ($vehiculo_autorizado['DiaVehiculo'] as $dato) {
+						if ($dato['dia'] == date('N')) {
+							$vehiculo_dia_autorizado = true;
+							break;
+						}
 					}
 				}
-			}
 
-			$this->request->data['Movimiento']['tipo_movimiento'] = strtoupper($this->request->data['Movimiento']['tipo_movimiento']);
-			if ($this->request->data['Movimiento']['tipo_movimiento'] === 'ENTRADA' && $vehiculo_ok === true) {
-				if ($this->Movimiento->save($this->request->data)) {
+				if (is_numeric($this->request->data['Movimiento']['horario'])) {
+					if ($this->request->data['Movimiento']['horario'] == 30) {
+						$this->request->data['Movimiento']['horario'] = date("c", strtotime('+30 min'));
+					} else {
+						$this->request->data['Movimiento']['horario'] = date("c", strtotime('+' . $this->request->data['Movimiento']['horario'] . ' hour'));
+					}
+				} else {
+					$this->request->data['Movimiento']['horario'] = null;
+				}
 
-					$this->Session->setFlash(__('Entrada autorizada.'), 'flash/success');
+				if ($vehiculo_dia_autorizado === true) {
+					if ($this->Movimiento->save($this->request->data)) {
+
+						$this->Session->setFlash(__('Entrada autorizada.'), 'flash/success');
+						$this->redirect(array('action' => 'admin_add'));
+					} else {
+
+						$this->Session->setFlash(__('Error - El vehiculo no se guardo.'), 'flash/error');
+						$this->redirect(array('action' => 'admin_add'));
+					}
+				} else {
+					$this->Session->setFlash(__('El vehiculo no esta autorizado.'), 'flash/error');
 					$this->redirect(array('action' => 'admin_add'));
-				 } else {
-
-					$this->Session->setFlash(__('Error - El vehiculo no se guardo.'), 'flash/error');
-					$this->redirect(array('action' => 'admin_add'));
-				 }
-			} elseif ($this->request->data['Movimiento']['tipo_movimiento'] === 'SALIDA') {
+				}
+			} else {
 				if ($this->Movimiento->save($this->request->data)) {
 
 					$this->Session->setFlash(__('Salida autorizada.'), 'flash/success');
@@ -99,13 +114,19 @@ class MovimientosController extends AppController {
 					$this->Session->setFlash(__('Error - El vehiculo no se guardo.'), 'flash/error');
 					$this->redirect(array('action' => 'admin_add'));
 				}
-
-			} else {
-
-				$this->Session->setFlash(__('El vehiculo no esta autorizado.'), 'flash/error');
-				$this->redirect(array('action' => 'admin_add'));
-			}					
+			}				
 		}
+
+		$horarios = array(
+			'30' => '30min'
+		);
+
+		for ($i=1; $i <= 24; $i++) { 
+			$horarios[$i] = $i . ' hs';
+		}
+
+		$this->set('horarios', $horarios);
+		
 		if (!empty($this->request->query)) {
 			foreach ($this->request->query as $key => $value) {
 				$this->request->data['Movimiento'][$key] = $value;

@@ -73,7 +73,7 @@ $(function() {
 
 				if (
 					$('#MovimientoTipoMovimiento').val() === 'SALIDA' ||
-					data.data.tipo_autorizacion === 'AUTORIZADO' || data.data.tipo_autorizacion === 'INVITADO' || data.data.tipo_autorizacion === 'PROVEEDOR'
+					data.data.tipo_autorizacion === 'AUTORIZADO'
 				) {
 					$('#MovimientoAdminAddForm').submit();
 					return;
@@ -130,6 +130,12 @@ $(function() {
 			ocultar_loading();
 			alert('Asegurese de estar logueado');
 		});
+	});
+
+	$('#HorarioAdminAddForm').bind('submit', function(event) {
+		event.preventDefault();
+		$('#MovimientoHorario').val($('#HorarioHorario').val());
+		$('#MovimientoAdminAddForm').submit();
 	});
 
 	$('#PersonaAdminAddForm').bind('submit', function(event) {
@@ -204,6 +210,23 @@ $(function() {
 		$('#MovimientoInterno').val(null);
 
 		input_error('#preview_tipo_movmiento');
+
+		$('#error_empty_patente').remove();
+		$('#error_carga_patente').remove();
+		$('#VehiculoPatente').val(null);
+
+		toggle_salida(true);
+	});
+
+	$('#horario_atras').bind('click', function(event) {
+		event.preventDefault();
+		$( "#tabs" ).tabs( "disable", 2 ).tabs( "enable", 1 ).tabs( "option", "active", 1);
+		$('#MovimientoVehiculoId').val(null);
+		$('#MovimientoPersonaId').val(null);
+		$('#MovimientoSector').val(null);
+		$('#MovimientoInterno').val(null);
+
+		input_error('#preview_vehiculo');
 
 		$('#error_empty_patente').remove();
 		$('#error_carga_patente').remove();

@@ -1198,3 +1198,35 @@ update vehiculos set fecha_carga = now();
 
 ALTER TABLE vehiculos ALTER COLUMN fecha_carga SET NOT NULL;
 ALTER TABLE vehiculos ALTER COLUMN fecha_carga SET DEFAULT now();
+
+DROP VIEW v_vehiculos_excedidos;
+ALTER TABLE movimientos
+  DROP COLUMN horas_predio;
+ALTER TABLE movimientos
+  DROP COLUMN minutos_predio;
+ALTER TABLE movimientos
+  ADD COLUMN horario timestamp without time zone;
+
+
+
+
+CREATE OR REPLACE VIEW v_vehiculos_excedidos AS 
+ SELECT m1.vehiculo_id,
+    v.patente,
+    v.tipo_autorizacion,
+    m1.id AS movimiento_id,
+    m1.persona_id,
+    m1.sector,
+    m1.interno,
+    m1.fecha_carga,
+    m1.usuario_id
+   FROM movimientos m1
+     JOIN vehiculos v ON v.id = m1.vehiculo_id
+  WHERE (m1.id IN ( SELECT m.id
+           FROM movimientos m
+          WHERE m.vehiculo_id = m1.vehiculo_id
+          ORDER BY m.id DESC
+         LIMIT 1)) AND m1.tipo_movimiento::text = 'ENTRADA'::text AND m1.horario < now() AND v.tipo_autorizacion::text <> 'AUTORIZADO'::text;
+
+ALTER TABLE v_vehiculos_excedidos
+  OWNER TO postgres;
