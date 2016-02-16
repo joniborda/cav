@@ -22,7 +22,7 @@
     <?php echo $this->Form->create('Vehiculo', array('inputDefaults' => array('label' => false), 'role' => 'form')); ?>
     	<?php echo $this->Form->label('patente', 'PATENTE DEL VEHÍCULO'); ?>
 		<?php echo $this->Form->input('patente', array('type' => 'text', 'div' => false, "class" => 'form-control input_mediano', 'maxlength' => 10));?>
-		<div class="row">
+		<div class="row row_sin_margen">
 			<a class="btn btn-danger col-md-6" id="vehiculo_atras" href="#">ATRÁS</a>
 			<button class="btn btn-success col-md-6">SIGUIENTE</button>
 		</div>
@@ -75,7 +75,7 @@
 		<span class="red">*</span>
 	</div>
 	</div>
-	<div class="row">
+	<div class="row row_sin_margen">
 		<a class="btn btn-danger col-md-6" id="horario_atras" href="#">ATRÁS</a>
 		<button class="btn btn-success col-md-6">SIGUIENTE</button>
 	</div>
