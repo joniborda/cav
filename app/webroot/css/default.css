@@ -663,7 +663,8 @@ input[type="radio"], input[type="checkbox"] {
 }
 
 .has-feedback label~.form-control-feedback {
-    top: 39px;
+    top: auto;
+    bottom: 0px;
 }
 
 .has-success .form-control-feedback {
