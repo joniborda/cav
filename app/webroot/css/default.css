@@ -401,7 +401,7 @@ a {
 	.row_boton {
 		padding: 0px 10px 0px 10px;
 	}
-	.no_data {
+	.no_data, .red {
 		color: red;
 	}
 	.p_form {
@@ -786,4 +786,17 @@ input[type="radio"], input[type="checkbox"] {
 .popover {
     width: 100%;
     max-width: none;
+}
+
+#tab-horario label {
+	width: 100%;
+	text-align: right;
+    margin-bottom: 0px;
+}
+#tab-horario .data_vehiculo {
+	text-align: left;
+	display: block;
+}
+.text_left {
+	text-align: left;
 }

@@ -13,8 +13,7 @@
 					<?php echo $this->Form->label('tipo_vehiculo_id', 'Tipo de Vehículo'); ?>
 					<?php echo $this->Form->input('tipo_vehiculo_id', array('div' => false, "class" => 'form-control'));?>
 
-					<?php echo $this->Form->label('patente', 'Patente'); ?>
-				
+					<?php echo $this->Form->label('patente', 'Patente'); ?>				
 					<?php echo $this->Form->input('patente', array('div' => false, "class" => 'form-control ','disabled'=>'disabled'));?>
 
 					<?php echo $this->Form->label('color', 'Color'); ?>

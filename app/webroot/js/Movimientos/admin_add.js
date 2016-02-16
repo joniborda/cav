@@ -71,13 +71,22 @@ $(function() {
 			if(data.response) {
 				$('#MovimientoVehiculoId').val(data.data.id);
 
-				if (
-					$('#MovimientoTipoMovimiento').val() === 'SALIDA' ||
-					data.data.tipo_autorizacion === 'AUTORIZADO'
-				) {
+				if ($('#MovimientoTipoMovimiento').val() === 'SALIDA') {
 					$('#MovimientoAdminAddForm').submit();
 					return;
 				}
+
+				$('.div_horario').show();
+
+				if (data.data.tipo_autorizacion == 'AUTORIZADO') {
+					$('.div_horario').hide();
+				}
+
+				$('.vehiculo_tipo_vehiculo_id').html(data.data.tipo_vehiculo_id);
+				$('.vehiculo_patente').html(data.data.patente);
+				$('.vehiculo_color').html(data.data.color);
+				$('.vehiculo_descripcion').html(data.data.descripcion);
+				$('.vehiculo_tipo_autorizacion').html(data.data.tipo_autorizacion);
 
 				$( "#tabs" ).tabs( "disable", 1 ).tabs( "enable", 2 ).tabs( "option", "active", 2);
 
@@ -120,8 +129,6 @@ $(function() {
 					$('#vehiculo_addPatente').val(patente);
 					$('#vehiculo_addPatenteMostrar').val(patente);
 					$('#vehiculo_addColor').focus();
-
-					
 				}
 
 			}
@@ -134,6 +141,13 @@ $(function() {
 
 	$('#HorarioAdminAddForm').bind('submit', function(event) {
 		event.preventDefault();
+		if ($('#HorarioHorario').is(':visible') && $('#HorarioHorario').val() == "") {
+			$('<div>').html('Seleccione las horas que se va a quedar').dialog({
+				modal: true
+			});
+			ocultar_loading();
+			return;
+		}
 		$('#MovimientoHorario').val($('#HorarioHorario').val());
 		$('#MovimientoAdminAddForm').submit();
 	});
@@ -225,6 +239,7 @@ $(function() {
 		$('#MovimientoPersonaId').val(null);
 		$('#MovimientoSector').val(null);
 		$('#MovimientoInterno').val(null);
+		$('#MovimientoHorario').val(null);
 
 		input_error('#preview_vehiculo');
 

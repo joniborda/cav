@@ -6,7 +6,7 @@
   <ul>
     <li><a href="#tab-movimiento">TIPO DE MOVIMIENTO</a></li>
     <li><a href="#tab-vehiculo">VEHÍCULO</a></li>
-    <li><a href="#tab-horario">HORARIO</a></li>
+    <li><a href="#tab-horario">CONFIRMACIÓN</a></li>
   </ul>
   <div id="tab-movimiento">
   	<div class="row">
@@ -30,17 +30,55 @@
   </div>
   
   <div id="tab-horario">
+
   	<?php echo $this->Form->create('Horario', array('inputDefaults' => array('label' => false), 'role' => 'form')); ?>
-    	<?php echo $this->Form->label('horario', '¿Cuántas horas se va a quedar?'); ?>
-		<?php echo $this->Form->input('horario', array(
-				'type' => 'select', 
-				'div' => false, 
-				'class' => 'form-control input_mediano',
-				'options' => $horarios));?>
-		<div class="row">
-			<a class="btn btn-danger col-md-6" id="horario_atras" href="#">ATRÁS</a>
-			<button class="btn btn-success col-md-6">SIGUIENTE</button>
-		</div>
+<div class="row">
+  	<div class="col-sm-6">
+		<?php echo $this->Form->label('tipo_vehiculo_id', 'Tipo de Vehículo'); ?>
+	</div>
+	<div class="col-sm-6">
+		<span class="vehiculo_tipo_vehiculo_id data_vehiculo">&nbsp;</span>
+	</div>
+	<div class="col-sm-6">
+		<?php echo $this->Form->label('patente', 'Patente'); ?>				
+	</div>
+	<div class="col-sm-6">
+		<span class="vehiculo_patente data_vehiculo">&nbsp;</span>
+	</div>
+
+	<div class="col-sm-6">
+		<?php echo $this->Form->label('color', 'Color'); ?>
+	</div>
+	<div class="col-sm-6">
+		<span class="vehiculo_color data_vehiculo">&nbsp;</span>
+	</div>
+
+	<div class="col-sm-6">
+		<?php echo $this->Form->label('descripcion', 'Descripcion'); ?>
+	</div>
+	<div class="col-sm-6">
+		<span class="vehiculo_descripcion data_vehiculo">&nbsp;</span>
+	</div>
+
+	<div class="col-sm-6">
+		<?php echo $this->Form->label('tipo_autorizacion', 'Tipo Autorizacion'); ?>
+	</div>
+	<div class="col-sm-6">
+		<span class="vehiculo_tipo_autorizacion data_vehiculo">&nbsp;</span>
+	</div>
+
+	<div class="col-sm-6 div_horario">
+		<?php echo $this->Form->label('horario', '¿Cuántas horas se va a quedar?'); ?>
+	</div>
+	<div class="col-sm-6 text_left div_horario">
+		<?php echo $this->Form->input('horario', array('type' => 'select', 'div' => false,'class' => 'form-control input_mediano','options' => $horarios));?>
+		<span class="red">*</span>
+	</div>
+	</div>
+	<div class="row">
+		<a class="btn btn-danger col-md-6" id="horario_atras" href="#">ATRÁS</a>
+		<button class="btn btn-success col-md-6">SIGUIENTE</button>
+	</div>
     <?php echo $this->Form->end(); ?>
   </div>
 </div>

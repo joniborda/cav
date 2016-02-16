@@ -118,6 +118,7 @@ class MovimientosController extends AppController {
 		}
 
 		$horarios = array(
+			'' => '',
 			'30' => '30min'
 		);
 
