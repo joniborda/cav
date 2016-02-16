@@ -124,10 +124,6 @@ a {
 	max-width: auto;
 }
 
-.container {
-	max-width: auto;
-}
-
 .table {
 	background-color: #ffffff;
 }
@@ -781,10 +777,11 @@ input[type="radio"], input[type="checkbox"] {
     max-width: none;
 }
 
-#tab-horario label {
+#tab-horario .title_vehiculo {
 	width: 100%;
 	text-align: right;
     margin-bottom: 0px;
+    display: block;
 }
 #tab-horario .data_vehiculo {
 	text-align: left;
@@ -818,4 +815,10 @@ input[type="radio"], input[type="checkbox"] {
 	border-color: transparent;
 }
 
-rgba(237, 237, 237, 0.39)
+.ui-widget-header {
+	background: none;
+}
+
+.ui-widget {
+	font-size: 0.7em;
+}

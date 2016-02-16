@@ -34,34 +34,34 @@
   	<?php echo $this->Form->create('Horario', array('inputDefaults' => array('label' => false), 'role' => 'form')); ?>
 <div class="row">
   	<div class="col-sm-6">
-		<?php echo $this->Form->label('tipo_vehiculo_id', 'Tipo de Vehículo'); ?>
+		<span class="title_vehiculo">Tipo de Vehículo</span>
 	</div>
 	<div class="col-sm-6">
 		<span class="vehiculo_tipo_vehiculo_id data_vehiculo">&nbsp;</span>
 	</div>
 	<div class="col-sm-6">
-		<?php echo $this->Form->label('patente', 'Patente'); ?>				
+		<span class="title_vehiculo">Patente</span>
 	</div>
 	<div class="col-sm-6">
 		<span class="vehiculo_patente data_vehiculo">&nbsp;</span>
 	</div>
 
 	<div class="col-sm-6">
-		<?php echo $this->Form->label('color', 'Color'); ?>
+		<span class="title_vehiculo">Color</span>
 	</div>
 	<div class="col-sm-6">
 		<span class="vehiculo_color data_vehiculo">&nbsp;</span>
 	</div>
 
 	<div class="col-sm-6">
-		<?php echo $this->Form->label('descripcion', 'Descripcion'); ?>
+		<span class="title_vehiculo">Descripcion</span>
 	</div>
 	<div class="col-sm-6">
 		<span class="vehiculo_descripcion data_vehiculo">&nbsp;</span>
 	</div>
 
 	<div class="col-sm-6">
-		<?php echo $this->Form->label('tipo_autorizacion', 'Tipo Autorizacion'); ?>
+		<span class="title_vehiculo">Tipo Autorizacion</span>
 	</div>
 	<div class="col-sm-6">
 		<span class="vehiculo_tipo_autorizacion data_vehiculo">&nbsp;</span>
