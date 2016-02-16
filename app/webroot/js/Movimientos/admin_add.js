@@ -82,11 +82,26 @@ $(function() {
 					$('.div_horario').hide();
 				}
 
-				$('.vehiculo_tipo_vehiculo_id').html(data.data.tipo_vehiculo_id);
-				$('.vehiculo_patente').html(data.data.patente);
-				$('.vehiculo_color').html(data.data.color);
-				$('.vehiculo_descripcion').html(data.data.descripcion);
-				$('.vehiculo_tipo_autorizacion').html(data.data.tipo_autorizacion);
+				$('.vehiculo_tipo_vehiculo_id').html('&nbsp;');
+				if (data.data.tipo_vehiculo_id) {
+					$('.vehiculo_tipo_vehiculo_id').html(data.data.tipo_vehiculo_id);
+				}
+				$('.vehiculo_patente').html('&nbsp;');
+				if (data.data.patente) {
+					$('.vehiculo_patente').html(data.data.patente);
+				}
+				$('.vehiculo_color').html('&nbsp;');
+				if (data.data.color) {
+					$('.vehiculo_color').html(data.data.color);
+				}
+				$('.vehiculo_descripcion').html('&nbsp;');
+				if (data.data.descripcion) {
+					$('.vehiculo_descripcion').html(data.data.descripcion);
+				}
+				$('.vehiculo_tipo_autorizacion').html('&nbsp;');
+				if (data.data.tipo_autorizacion) {
+					$('.vehiculo_tipo_autorizacion').html(data.data.tipo_autorizacion);
+				}
 
 				$( "#tabs" ).tabs( "disable", 1 ).tabs( "enable", 2 ).tabs( "option", "active", 2);
 
